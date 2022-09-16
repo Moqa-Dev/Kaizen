@@ -48,7 +48,7 @@ Please note that it uses [Kajo](https://moqa.moshaheen.com/Kajo/) as a backend
 ## How To Run:
 * Using Visual Studio Code
 * Run 'npm install' in Terminal
-* Run 'npm run' in Terminal
+* Run 'npm start' in Terminal
 
 ## How To Use:
 An Example of Topic-Post is included in the project check it for reference.

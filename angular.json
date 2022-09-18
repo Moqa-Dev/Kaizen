@@ -26,7 +26,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/landing"
+              "src/static"
             ],
             "styles": [
               "src/styles.scss"

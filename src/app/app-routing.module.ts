@@ -6,13 +6,13 @@ const routes: Routes = [
     path: 'landing',
     children: [{
       path: '',
-      loadChildren: () => import('./landing/landing.module').then(x => x.LandingModule)
+      loadChildren: () => import('./layouts/landing/landing.module').then(x => x.LandingModule)
     }]
   }, {
     path: 'admin',
     children: [{
       path: '',
-      loadChildren: () => import('./admin/admin.module').then(x => x.AdminModule)
+      loadChildren: () => import('./layouts/admin/admin.module').then(x => x.AdminModule)
     }]
   }, {
     path: '',

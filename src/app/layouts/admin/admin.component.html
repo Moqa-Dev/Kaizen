@@ -1,3 +1,13 @@
+<mat-form-field appearance="fill">
+  <mat-label>Theme</mat-label>
+  <mat-select [(value)]="selectedTheme">
+    <mat-option *ngFor="let theme of availableThemes" (onSelectionChange)="changeTheme($event)" [value]="theme">
+      {{theme}}
+    </mat-option>
+  </mat-select>
+  
+</mat-form-field>
+
 <div>
     <mat-slider min="1" max="100" step="1" value="50"></mat-slider>
     <button mat-button>TEST</button>

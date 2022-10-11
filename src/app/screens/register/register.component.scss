@@ -1,0 +1,21 @@
+////@import "src/assets/scss/colors";
+//@import "src/assets/scss/colors.scss";
+
+$secondary-color: pink;
+
+.background {
+  padding: 5%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../../../assets/img/moqa.png");
+  background-origin: content-box;
+}
+
+.card {
+  box-shadow: none;
+}
+
+.cancel-color {
+  background-color: $secondary-color;
+}

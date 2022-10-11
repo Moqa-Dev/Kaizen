@@ -1,0 +1,15 @@
+<app-data-table
+        [title]="title"
+        [fabIcon]="'add'"
+        [fabButton]="'Add user'"
+        [inputArray]="usersResultSet"
+        [columns]="columns"
+        [displayedColumns]="displayedColumns"
+        [rowMenuActions]="rowMenuActions"
+        (sort)="sort = $event; refreshPage()"
+        (refresh)="refreshPage()"
+        (fabAction)="addUser()"
+        (updateTable)="getUsers($event)"
+        (refreshForFilters)="applyFilter($event)"
+        (applyAction)="applyAction($event.action, $event.element)">
+</app-data-table>

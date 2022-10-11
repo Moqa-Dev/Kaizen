@@ -1,0 +1,127 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row" *ngIf="updateUserForm && updatePasswordForm">
+            <div class="col-lg-8 col-md-12 col-sm-12 mt-2">
+                <mat-card class="card-profile">
+                    <div class="col-12 mb-4 card-avatar">
+                        <a>
+                            <img class="img" src="./assets/img/Icon.png" alt="profile"/>
+                        </a>
+                    </div>
+                    <form [formGroup]="updateUserForm" class="col-12">
+                        <mat-form-field class="col-6">
+                            <mat-label>First name</mat-label>
+                            <input matInput formControlName="firstName" type="text">
+                            <mat-error *ngIf="updateUserForm.controls.firstName.invalid">
+                                {{getErrorMessage('firstName')}}
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="col-6">
+                            <mat-label>Last name</mat-label>
+                            <input matInput formControlName="lastName" type="text">
+                            <mat-error *ngIf="updateUserForm.controls.lastName.invalid">
+                                {{getErrorMessage('lastName')}}
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="col-6">
+                            <mat-label>Team</mat-label>
+                            <input matInput formControlName="team" type="text">
+                            <mat-error *ngIf="updateUserForm.controls.team.invalid">
+                                {{getErrorMessage('team')}}
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="col-6">
+                            <mat-label>Department</mat-label>
+                            <input matInput formControlName="department" type="text">
+                            <mat-error *ngIf="updateUserForm.controls.department.invalid">
+                                {{getErrorMessage('department')}}
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="col-6">
+                            <mat-label>Phone Number</mat-label>
+                            <input matInput formControlName="phoneNumber" type="text">
+                            <mat-error *ngIf="updateUserForm.controls.phoneNumber.invalid">
+                                {{getErrorMessage('phoneNumber')}}
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="col-12">
+                            <mat-label>About</mat-label>
+                            <textarea matInput name="about" formControlName="about" cdkTextareaAutosize
+                                      id="about" cols="30" rows="5"></textarea>
+                        </mat-form-field>
+                        <div *ngIf="editProfileMode; else viewProfileMode">
+                            <button mat-button class="cancel-color m-1" (click)="disableUpdateProfile()">cancel</button>
+                            <button mat-button type="submit" class="submit-color m-1"
+                                    [disabled]="!updateUserForm.valid" (click)="updateUserData()">
+                                Save
+                            </button>
+                        </div>
+                        <ng-template #viewProfileMode>
+                            <div>
+                                <button mat-button type="submit" class="submit-color" (click)="enableUpdateProfile()">
+                                    Edit Profile
+                                </button>
+                            </div>
+                        </ng-template>
+                    </form>
+                </mat-card>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 mt-2">
+                <mat-card class="card-profile">
+                    <div class="col-12 mb-4 card-avatar" style="visibility: hidden">
+                        <a>
+                            <img class="img" src="./assets/img/Icon.png" alt="profile"/>
+                        </a>
+                    </div>
+                    <form [formGroup]="updatePasswordForm">
+                        <mat-form-field class="col-12">
+                            <mat-label>Username</mat-label>
+                            <input matInput formControlName="username" type="text">
+                        </mat-form-field>
+                        <mat-form-field class="col-12">
+                            <mat-label>Email</mat-label>
+                            <input matInput formControlName="email" type="email">
+                        </mat-form-field>
+                        <mat-form-field class="col-12">
+                            <mat-label>Old Password*</mat-label>
+                            <input matInput formControlName="oldPassword" [type]="hideOld ? 'password' : 'text'">
+                            <mat-icon matSuffix
+                                      (click)="hideOld = !hideOld">{{hideOld ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            <mat-error
+                                    *ngIf="updatePasswordForm.controls.oldPassword.invalid">{{getErrorMessage('oldPassword')}}</mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="col-12">
+                            <mat-label>New Password*</mat-label>
+                            <input matInput formControlName="newPassword" [type]="hideNew ? 'password' : 'text'">
+                            <mat-icon matSuffix
+                                      (click)="hideNew = !hideNew">{{hideNew ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            <mat-error
+                                    *ngIf="updatePasswordForm.controls.newPassword.invalid">{{getErrorMessage('newPassword')}}</mat-error>
+                        </mat-form-field>
+                        <div class="margin-top" *ngIf="editPasswordMode; else viewPasswordMode">
+                            <button mat-button class="cancel-color m-1" (click)="disableUpdatePassword()">cancel</button>
+                            <button mat-button type="submit" class="submit-color m-1"
+                                    [disabled]="!updatePasswordForm.valid" (click)="updateUserPassword()">
+                                Save
+                            </button>
+                        </div>
+                        <ng-template #viewPasswordMode>
+                            <div class="margin-top">
+                                <button mat-button type="submit" class="submit-color" (click)="enableUpdatePassword()">
+                                    Edit Password
+                                </button>
+                            </div>
+                        </ng-template>
+                    </form>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+    <!--<div class="row">
+        <div class="col-2">
+            <button mat-raised-button class="submit-color" (click)="updatePassword()">
+                Update Password
+            </button>
+        </div>
+    </div>-->
+</div>

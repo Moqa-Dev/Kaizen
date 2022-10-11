@@ -1,0 +1,62 @@
+<h1 mat-dialog-title>Update Item</h1>
+<mat-divider></mat-divider>
+<div mat-dialog-content>
+    <div class="row">
+        <div class="col-md-12">
+            <form [formGroup]="updateForm">
+                <mat-form-field>
+                            <mat-label>First name</mat-label>
+                            <input matInput formControlName="firstName" type="text">
+                            <mat-error *ngIf="updateForm.controls.firstName.invalid">
+                                {{getErrorMessage('firstName')}}
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Last name</mat-label>
+                            <input matInput formControlName="lastName" type="text">
+                            <mat-error *ngIf="updateForm.controls.lastName.invalid">
+                                {{getErrorMessage('lastName')}}
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Team</mat-label>
+                            <input matInput formControlName="team" type="text">
+                            <mat-error *ngIf="updateForm.controls.team.invalid">
+                                {{getErrorMessage('team')}}
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Department</mat-label>
+                            <input matInput formControlName="department" type="text">
+                            <mat-error *ngIf="updateForm.controls.department.invalid">
+                                {{getErrorMessage('department')}}
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Phone Number</mat-label>
+                            <input matInput formControlName="phoneNumber" type="text">
+                            <mat-error *ngIf="updateForm.controls.phoneNumber.invalid">
+                                {{getErrorMessage('phoneNumber')}}
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>About</mat-label>
+                            <textarea matInput name="about" formControlName="about" cdkTextareaAutosize
+                                      id="about" cols="30" rows="5"></textarea>
+                        </mat-form-field>
+
+                <div class="row" style="position: sticky; bottom: 5.4%; z-index: 1">
+                    <div class="col-12">
+                        <mat-dialog-actions>
+                            <button mat-button matDialogClose="cancel" class="cancel-color">cancel</button>
+                            <button mat-button type="submit" class="submit-color" [matDialogClose]="updateForm"
+                                    [disabled]="!updateForm.valid">
+                                Update
+                            </button>
+                        </mat-dialog-actions>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

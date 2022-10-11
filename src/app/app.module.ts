@@ -7,10 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AppConfigModule } from './app-config/app-config.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { CommonModule } from '@angular/common';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { AdminModule } from './layouts/admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -23,13 +23,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     HttpClientModule,
     AppConfigModule,
     MatSnackBarModule,
-
-    //TODO: related to Admin routing issue
-    CommonModule,
-    FooterComponent,
-    SidebarComponent,
-    NavbarComponent,
-    MatSnackBarModule,
+    AdminModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

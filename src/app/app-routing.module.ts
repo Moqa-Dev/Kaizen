@@ -19,7 +19,7 @@ const routes: Routes = [
     }]
   }, {
     path: 'admin',
-    component: AdminComponent, //TODO: Remove This, added to load components inside admin layout, children was overriding layout
+    component: AdminComponent,
     loadChildren: () => import('./layouts/admin/admin.module').then(x => x.AdminModule)
   }, {
     path: '',

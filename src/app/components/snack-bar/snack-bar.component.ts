@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {Component, Inject, ViewEncapsulation} from '@angular/core';
 import {MAT_SNACK_BAR_DATA} from "@angular/material/snack-bar";
 
@@ -8,6 +9,7 @@ import {MAT_SNACK_BAR_DATA} from "@angular/material/snack-bar";
   encapsulation: ViewEncapsulation.None,
   standalone: true,
   imports:[
+    CommonModule
   ]
 })
 export class SnackBarComponent {

@@ -1,0 +1,71 @@
+@import "src/assets/scss/colors.scss";
+
+.fab-overlay {
+  margin-bottom: -1%;
+  position: relative;
+  z-index: 1;
+}
+
+.fab-color {
+  background-color: $primary-color;
+}
+
+a {
+  color: $primary-color;
+}
+
+a:hover {
+  // TODO: change color on hover
+}
+
+.refresh-button {
+  padding: 0 21px;
+  color: inherit;
+}
+
+.additional-actions {
+  padding: 0 8px;
+  color: inherit;
+}
+
+mat-header-cell {
+  font-weight: bold;
+  color: $secondary-color;
+}
+
+:host ::ng-deep .mat-sort-header-button {
+  color: inherit;
+  background-color: inherit;
+}
+
+.align-right {
+  display: flex;
+  padding: 0 21px;
+  justify-content: flex-end;
+}
+
+.secondary-color {
+  color: $secondary-color !important;
+  background-color: inherit !important;
+}
+
+mat-row:hover {
+  background-color: #f0f0f0;
+}
+
+.icon-style {
+  display: flex;
+  justify-content: flex-end;
+}
+
+mat-cell span, mat-header-cell span {
+  white-space: nowrap !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  padding: 0 5px;
+}
+
+.main-content {
+  margin-top: 0;
+}

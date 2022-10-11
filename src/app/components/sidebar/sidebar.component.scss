@@ -1,0 +1,25 @@
+@import "src/assets/scss/colors.scss";
+
+li.active > a {
+  background-color: $primary-color !important;
+}
+
+.system-ok {
+  background-color: green !important;
+  color: white !important;
+}
+
+.system-notok {
+  background-color: darkred !important;
+  color: white !important;
+}
+
+.color-white {
+  color: white !important;
+}
+
+@media (max-width: 1200px) {
+  .active-pro {
+    position: inherit !important;
+  }
+}

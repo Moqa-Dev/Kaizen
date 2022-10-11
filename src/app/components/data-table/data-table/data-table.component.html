@@ -1,0 +1,133 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <!--<div class="row">
+            <div class="col-3">
+                <mat-form-field appearance="fill">
+                    <mat-label>Search</mat-label>
+                    <input matInput (keyup)="applyFilter($event)">
+                    <mat-icon matSuffix>search</mat-icon>
+                </mat-form-field>
+            </div>
+            &lt;!&ndash;<div class="col-6"></div>
+            <div class="col-2 refresh-button-div">
+                <button mat-raised-button class="refresh-button" (click)="refreshData()">
+                    Refresh data
+                </button>
+            </div>&ndash;&gt;
+        </div>-->
+        <app-filter [filters]="filters" (refresh)="applyFilter($event)" [dateFilter] ="dateFilter"></app-filter>
+        <div *ngIf="fabButton != null && fabButton.length > 0" class="row justify-content-end fab-overlay">
+            <div class="offset-8 col-2">
+                <button mat-mini-fab matTooltip="{{fabButton}}" (click)="executeFabAction()"
+                        [matTooltipPosition]="'above'" class="fab-color">
+                    <mat-icon>{{fabIcon}}</mat-icon>
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <mat-table [dataSource]="dataSource" (matSortChange)="sortData($event)"
+                           [matSortActive]="defaultSortColumn" [matSortDirection]="defaultSortDirection"
+                           matSort class="mat-elevation-z8">
+                    <!-- Checkbox Column -->
+                    <!--<ng-container matColumnDef="select">
+                        <mat-header-cell *matHeaderCellDef>
+                            <mat-checkbox (change)="$event ? masterToggle() : null" color="primary"
+                                          [checked]="selection.hasValue() && isAllSelected()"
+                                          [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                          [aria-label]="checkboxLabel()">
+                            </mat-checkbox>
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let row">
+                            <mat-checkbox (click)="$event.stopPropagation()" color="primary"
+                                          (change)="$event ? selection.toggle(row) : null"
+                                          [checked]="selection.isSelected(row)"
+                                          [aria-label]="checkboxLabel(row)">
+                            </mat-checkbox>
+                        </mat-cell>
+                    </ng-container>-->
+                    <!-- Name Column -->
+                    <ng-container *ngFor="let list of displayedColumns; let i = index">
+                        <ng-container matColumnDef="{{columns[i]}}">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header
+                                             [disabled]="disableSort[i] == columns[i]">
+                                <span>{{list | uppercase}}</span>
+                            </mat-header-cell>
+                            <!-- if the element is an array we display only its size with the suitable header -->
+                            <mat-cell *matCellDef="let element">
+                                <ng-container *ngIf="!isMap(element[columns[i]], columns[i], i); else map">
+                                    <span>{{isArray(element[columns[i]], columns[i], i) ?
+                                    element[columns[i]].length : getNestedProperty(element, columns[i])}}</span>
+                                </ng-container>
+                                <ng-template #map>
+                                    <ng-container *ngFor="let map of element[columns[i]] | keyvalue">
+                                        <ng-container *ngIf="isColor(map.value); else text">
+                                            <mat-icon [style.color]="map.value"
+                                                      [style.font-size]="'large'">lens
+                                            </mat-icon>
+                                        </ng-container>
+                                        <ng-template #text>
+                                            {{map.value}}
+                                        </ng-template>
+                                    </ng-container>
+                                </ng-template>
+                            </mat-cell>
+                        </ng-container>
+                    </ng-container>
+
+                    <!-- Menu Column -->
+                    <ng-container matColumnDef="menu">
+                        <mat-header-cell *matHeaderCellDef class="align-right">
+                            <a *ngFor="let action of additionalActions" class="additional-actions"
+                               [routerLink]="" (click)="executeAction(action[1], null)"
+                               matTooltip="{{action[1]}}" [matTooltipPosition]="'above'">
+                                <mat-icon>{{action[0]}}</mat-icon>
+                            </a>
+                            <a [ngClass]="additionalActions.length > 0 ? 'additional-actions' : 'refresh-button'"
+                               [routerLink]="" (click)="refreshData()"
+                               matTooltip="Refresh" [matTooltipPosition]="'above'">
+                                <mat-icon>refresh</mat-icon>
+                            </a>
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let element" class="align-right">
+                            <mat-menu #rowMenu>
+                                <button mat-menu-item *ngFor="let action of rowMenuActions; let i = index"
+                                        (click)="executeAction(action[1], element)">
+                                    <mat-icon class="secondary-color">{{action[0]}}</mat-icon>
+                                    {{action[1]}}
+                                </button>
+                            </mat-menu>
+
+                            <ng-container *ngIf="rowMenuActions.length > 1; else oneAction">
+                                <button class="align-right" mat-icon-button [matMenuTriggerFor]="rowMenu" aria-label=""
+                                        *ngIf="rowMenuActions.length > 1" style="width: auto">
+                                    <mat-icon>more_vert</mat-icon>
+                                </button>
+                            </ng-container>
+
+                            <ng-template #oneAction>
+                                <button class="align-right" mat-icon-button
+                                        *ngFor="let action of rowMenuActions; let i = index"
+                                        (click)="executeAction(action[1], element)" style="width: auto">
+                                    <mat-icon class="secondary-color">{{action[0]}}</mat-icon>
+                                </button>
+                            </ng-template>
+                        </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
+                    <!-- add this event upon enabling table checkbox: (click)="selection.toggle(row)" -->
+                    <mat-row *matRowDef="let row; columns: columns;"></mat-row>
+                </mat-table>
+                <mat-paginator #paginator
+                               [length]="length"
+                               [pageSize]="pageSize"
+                               [pageSizeOptions]="pageSizeOptions"
+                               (page)="getList($event)">
+                </mat-paginator>
+
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,22 @@
+<div class="sidebar-wrapper">
+    <ul class="nav" (click)="hideSidebar()">
+        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
+            <a class="nav-link" [routerLink]="[menuItem.path]">
+                <i class="material-icons">{{menuItem.icon}}</i>
+                <p>{{menuItem.title}}</p>
+            </a>
+        </li>
+        <li >
+            <a >
+                <i></i>
+                <p></p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link system-ok">
+                <i class="material-icons color-white Valid">verified_user</i>
+                <p>System OK</p>
+            </a>
+        </li>
+    </ul>
+</div>

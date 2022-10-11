@@ -1,0 +1,68 @@
+<mat-toolbar [ngClass]="isLoggedIn() ? 'horizontal-line' : ''"
+             [style.background-color]="isLoggedIn() ? '#FFFFFF' : 'transparent'">
+    <button *ngIf="isLoggedIn()" mat-icon-button (click)="toggleSidebar()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <div class="navbar-wrapper logo" *ngIf="!isLoggedIn()">
+        <a [routerLink]="['/dashboard']" class="navbar-brand simple-text">
+            <img *ngIf="isMobile" src="/assets/img/Icon.png"/>
+            <span *ngIf="isMobile" style="margin: 0 0.5rem">Kaizen</span>
+        </a>
+    </div>
+    <div class="navbar-wrapper logo" *ngIf="isLoggedIn()">
+        <a [routerLink]="['/dashboard']" class="navbar-brand simple-text">
+            <img src="/assets/img/Icon.png"/>
+            <span *ngIf="!isMobile" style="margin: 0 0.5rem">Kaizen</span>
+            <span *ngIf="isMobile" style="margin: 0 0.5rem"><a class="navbar-brand">{{getTitle()}}</a></span>
+        </a>
+    </div>
+    <div *ngIf="!isMobile && isLoggedIn()" class="navbar-wrapper">
+        <a class="navbar-brand">{{getTitle()}}</a>
+    </div>
+    <!--<div *ngIf="!isLoggedIn()" class="navbar-wrapper logo">
+        <a class="navbar-brand simple-text">
+            <img src="/assets/img/Icon.png" alt="logo"/>
+        </a>
+    </div>-->
+    <div class="spacer"></div>
+    <div *ngIf="isLoggedIn()" class="navbar-collapse" id="navigation">
+        
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <mat-menu #userMenu>
+                    <button mat-menu-item (click)="goToProfile()">
+                        <mat-icon>portrait</mat-icon>
+                        My profile
+                    </button>
+                    <!--<button mat-menu-item (click)="addUser()">Add user</button>-->
+                    <button mat-menu-item (click)="logout()">
+                        <mat-icon>exit_to_app</mat-icon>
+                        Logout
+                    </button>
+                </mat-menu>
+                <button mat-icon-button [matMenuTriggerFor]="userMenu" aria-label="">
+                    <mat-icon>person</mat-icon>
+                </button>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <button mat-icon-button (click)="toggleFullscreen()">
+                    <div *ngIf="!fullscreen;then EnterFullscreen else exitFullScreen">here is ignored</div>    
+                    <ng-template #EnterFullscreen><mat-icon>fullscreen</mat-icon></ng-template>
+                    <ng-template #exitFullScreen><mat-icon>fullscreen_exit</mat-icon></ng-template>
+                </button>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <button mat-icon-button (click)="toggleDarkMode()">
+                    <div *ngIf="!darkMode;then EnterDarkMode else exitDarkMode">here is ignored</div>    
+                    <ng-template #EnterDarkMode><mat-icon>brightness_3</mat-icon></ng-template>
+                    <ng-template #exitDarkMode><mat-icon>wb_sunny</mat-icon></ng-template>
+                </button>
+            </li>
+        </ul>
+        
+    </div>
+</mat-toolbar>

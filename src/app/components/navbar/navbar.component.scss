@@ -1,0 +1,40 @@
+@import "src/assets/scss/colors";
+
+.horizontal-line {
+  border-bottom: 1px solid hsla(169, 12%, 28%, 0.15);
+}
+
+.logo-img {
+  height: 120%;
+  display: inline-block;
+}
+
+img {
+  height: inherit;
+}
+
+.simple-text, .navbar-brand {
+  font-weight: 400;
+}
+
+div.logo {
+  height: 100%;
+  width: 20%;
+}
+
+div.logo a {
+  height: inherit;
+  color: black;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.navbar-nav {
+  float: right;
+}
+
+.hide-logo {
+  display: none;
+}

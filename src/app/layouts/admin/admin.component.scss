@@ -1,32 +1,48 @@
-section {
-    display: table;
+mat-progress-bar {
+  z-index: 10;
+  position: fixed;
+}
+
+@media (max-width: 1200px) {
+  .hide-main-panel {
+    display: none;
   }
-  
-  .example-label {
-    display: table-cell;
-    font-size: 14px;
-    margin-left: 8px;
-    min-width: 120px;
+
+  .show-main-panel {
+    width: 100%;
   }
-  
-  .example-button-row {
-    display: table-cell;
-    width: 490px;
+
+  .show-sidebar {
+    width: 100%;
   }
-  
-  .example-button-row .mat-button-base {
-    margin: 8px 8px 8px 0;
+
+  .sidebar {
+    top: 0;
   }
-  
-  .example-flex-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+}
+
+.show-sidebar {
+  height: 91.2%;
+}
+
+.wrapper {
+  overflow: auto;
+  scrollbar-color: grey;
+  scrollbar-width: thin;
+}
+
+@media (min-width: 1200px) {
+  .move-forward {
+    position: sticky;
+    top: 0;
   }
-  
-  .example-button-container {
-    display: flex;
-    justify-content: center;
-    width: 120px;
+
+  .side-bar {
+    top: 0;
   }
-  
+}
+
+.sidebar {
+  position: sticky;
+  top: 64px;
+}

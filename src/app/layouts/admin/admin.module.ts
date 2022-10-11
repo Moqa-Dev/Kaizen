@@ -1,15 +1,14 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-
-import { AdminRoutes } from './admin-routing.module';
+import {NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
+import {APP_BASE_HREF, CommonModule} from '@angular/common';
+import {AdminRoutes} from './admin-routing.module';
 import { AdminComponent } from './admin.component';
-import { MatSliderModule } from '@angular/material/slider';
-import { MatIconModule } from '@angular/material/icon';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
+import { AuthGuard } from 'src/app/guards/AuthGuard';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { Interceptor } from 'src/app/interceptors/interceptor';
+import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+import { FooterComponent } from 'src/app/components/footer/footer.component';
+import { NavbarComponent } from 'src/app/components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +16,23 @@ import {MatSelectModule} from '@angular/material/select';
   ],
   imports: [
     CommonModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatSliderModule,
-    MatIconModule,
-    MatDividerModule,
-    MatButtonModule,
     RouterModule.forChild(AdminRoutes),
+    FooterComponent,
+    NavbarComponent,
+    MatSnackBarModule
   ],
-  providers: []
+  providers: [
+    AuthGuard,
+    {provide: APP_BASE_HREF, useValue: window['base-href']},
+    {provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true},
+    {
+      provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
+      useValue: {
+        duration: 5000,
+        horizontalPosition: 'right',
+        verticalPosition: 'top'
+      }
+    }
+  ]
 })
 export class AdminModule { }

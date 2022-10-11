@@ -9,6 +9,12 @@ const routes: Routes = [
       loadChildren: () => import('./layouts/landing/landing.module').then(x => x.LandingModule)
     }]
   }, {
+    path: 'theme',
+    children: [{
+      path: '',
+      loadChildren: () => import('./layouts/theme/theme.module').then(x => x.ThemeModule)
+    }]
+  }, {
     path: 'admin',
     children: [{
       path: '',

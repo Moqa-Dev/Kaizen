@@ -9,19 +9,60 @@ import {
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
-import {MatTableDataSource} from "@angular/material/table";
-import {MatPaginator, PageEvent} from "@angular/material/paginator";
-import {MatSort, Sort, SortDirection} from "@angular/material/sort";
+import {MatTableDataSource, MatTableModule} from "@angular/material/table";
+import {MatPaginator, MatPaginatorModule, PageEvent} from "@angular/material/paginator";
+import {MatSort, MatSortModule, Sort, SortDirection} from "@angular/material/sort";
 import {Title} from "@angular/platform-browser";
-import {ResultSet} from "../../models/result-set";
-import {PaginationSize} from "../../models/pagination-size";
-import Utils from "../../util/Utils";
-import {Filter} from "../../models/filter";
+import {ResultSet} from "../../../models/result-set";
+import {PaginationSize} from "../../../models/enums/code-enums/pagination-size";
+import Utils from "../../../util/Utils";
+import {Filter} from "../../../models/filter";
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { RouterModule } from '@angular/router';
+import { FilterComponent } from '../filter/filter.component';
 
 @Component({
   selector: 'app-data-table',
   templateUrl: './data-table.component.html',
-  styleUrls: ['./data-table.component.scss']
+  styleUrls: ['./data-table.component.scss'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    RouterModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatCheckboxModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatSelectModule,
+    MatTooltipModule,
+    MatDividerModule,
+    MatToolbarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FilterComponent
+  ]
 })
 export class DataTableComponent implements OnInit, OnChanges, AfterViewInit {
 

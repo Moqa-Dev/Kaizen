@@ -1,15 +1,27 @@
 import {Component, OnInit, ElementRef, Output, EventEmitter, Input, Inject} from '@angular/core';
 import {ALLROUTES} from '../sidebar/sidebar.component';
-import {Location} from '@angular/common';
-import {Router} from '@angular/router';
-//import {LoginService} from "../../services/login.service";
+import {CommonModule, Location} from '@angular/common';
+import {Router, RouterModule} from '@angular/router';
+import {LoginService} from "../../services/login.service";
 import {Title} from "@angular/platform-browser";
 import { DOCUMENT } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
+  standalone: true,
+  imports:[
+    CommonModule,
+    RouterModule,
+    MatIconModule,
+    MatMenuModule,
+    MatToolbarModule,
+  ]
 })
 export class NavbarComponent implements OnInit {
   private listTitles: any[];
@@ -24,12 +36,18 @@ export class NavbarComponent implements OnInit {
 
   @Input() isMobile: boolean = false;
 
+  selectedTheme: string;
+  availableThemes: string[];
+
   constructor(location: Location,
               private element: ElementRef,
               private router: Router,
-              //public loginService: LoginService,
+              public loginService: LoginService,
+              public themeService: ThemeService,
               private titleService: Title,
               @Inject(DOCUMENT) private document: any) {
+    this.selectedTheme = themeService.currentTheme;
+    this.availableThemes = themeService.availableThemes;
     this.location = location;
     this.sidebarVisible = false;
   }
@@ -61,11 +79,11 @@ export class NavbarComponent implements OnInit {
   }*/
 
   isLoggedIn(): boolean{
-    // this.loginService.isLoggedIn();
-    return false;
+    return this.loginService.isLoggedIn();
+    //return false;
   }
   logout() {
-    //this.loginService.logout();
+    this.loginService.logout();
   }
 
   toggleSidebar() {
@@ -75,6 +93,11 @@ export class NavbarComponent implements OnInit {
   darkMode:boolean = false;
   toggleDarkMode(){
     this.darkMode = !this.darkMode;
+    if(this.darkMode)
+      this.themeService.switchTheme(this.themeService.availableThemes[1]);
+    else
+      this.themeService.switchTheme(this.themeService.availableThemes[0]);
+
     // if(this.darkMode){
     //   enableDarkMode({
     //     brightness: 100,

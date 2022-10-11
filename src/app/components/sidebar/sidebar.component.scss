@@ -1,4 +1,6 @@
-@import "src/assets/scss/colors.scss";
+//@import "src/assets/scss/colors.scss";
+
+$primary-color: pink;
 
 li.active > a {
   background-color: $primary-color !important;

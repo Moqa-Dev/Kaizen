@@ -1,14 +1,20 @@
 import {Component, Inject} from '@angular/core';
-import {MAT_DIALOG_DATA} from "@angular/material/dialog";
-import Utils from "../util/Utils";
-import {TreeNode} from "../models/tree-node";
+import {MatDialogModule, MAT_DIALOG_DATA} from "@angular/material/dialog";
+import Utils from "../../util/Utils";
+import {TreeNode} from "../../models/tree-node";
+import { MatDividerModule } from '@angular/material/divider';
 
 declare const $: any;
 
 @Component({
   selector: 'app-view-popup',
   templateUrl: './view-popup.component.html',
-  styleUrls: ['./view-popup.component.scss']
+  styleUrls: ['./view-popup.component.scss'],
+  standalone: true,
+  imports:[
+    MatDialogModule,
+    MatDividerModule,
+  ]
 })
 export class ViewPopupComponent {
 

@@ -9,7 +9,7 @@ import {ProfileComponent} from "../../screens/profile/profile.component";
 import { RolesComponent } from '../../screens/roles/roles.component';
 
 export const AdminRoutes: Routes = [
-  {path: '', component: AdminComponent},
+  //{path: '', component: AdminComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   {path: 'dashboard/:notFound', component: DashboardComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
@@ -18,6 +18,6 @@ export const AdminRoutes: Routes = [
   {path: 'roles', component: RolesComponent, canActivate: [AuthGuard]},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   
-  //{path: '**', redirectTo: 'dashboard/NotFound', canActivate: [AuthGuard]},
+  {path: '**', redirectTo: 'dashboard/NotFound'},
 ];
 

@@ -1,4 +1,6 @@
+import { CommonModule } from '@angular/common';
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import { MatDialogModule } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
 import { UsersService } from '../../services/users.service';
 
@@ -12,7 +14,7 @@ declare interface RouteInfo {
 }
 
 export const ALLROUTES: RouteInfo[] = [
-  {path: '/dashboard', title: 'Dashboard', icon: 'dashboard', class: ''},
+  {path: '/admin/dashboard', title: 'Dashboard', icon: 'dashboard', class: ''},
   // {path: '/report', title: 'Daily Report', icon: 'flag', class: ''},
   // {path: '/alerts', title: 'Alerts', icon: 'warning', class: ''},
   // {path: '/transactions', title: 'Transactions', icon: 'assignment_turned_in', class: ''},
@@ -20,8 +22,8 @@ export const ALLROUTES: RouteInfo[] = [
   // {path: '/rules', title: 'Rules', icon: 'sync_problem', class: ''},
   // {path: '/workcenters', title: 'Work Centers', icon: 'work', class: ''},
   // {path: '/departments', title: 'Departments', icon: 'store', class: ''},
-  {path: '/users', title: 'Users', icon: 'people', class: ''},
-  {path: '/roles', title: 'Roles', icon: 'security', class: ''},
+  {path: '/admin/users', title: 'Users', icon: 'people', class: ''},
+  {path: '/admin/roles', title: 'Roles', icon: 'security', class: ''},
 ];
 
 export const ROUTES: RouteInfo[] = [];
@@ -32,7 +34,9 @@ export const ROUTES: RouteInfo[] = [];
   styleUrls: ['./sidebar.component.scss'],
   standalone: true,
   imports:[
+    CommonModule,
     RouterModule,
+    MatDialogModule,
   ]
 })
 export class SidebarComponent implements OnInit {
@@ -45,19 +49,19 @@ export class SidebarComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.menuItems = ALLROUTES.filter(menuItem => menuItem);
+    this.menuItems = ALLROUTES.filter(menuItem => menuItem);
+    //TODO: Routes by permission
     
-    
-    this.usersService.getUserPermissions().subscribe((response: { value: string[]; }) => {
-      if (response) {
-        let permissions = response.value.join(', ').toUpperCase();
-        ALLROUTES.forEach(element => {
-          if(permissions.includes(element.title.replace(' ','').toUpperCase()))
-            ROUTES.push(element);
-        });
-        this.menuItems = ROUTES.filter(menuItem => menuItem);
-      }
-    });
+    // this.usersService.getUserPermissions().subscribe((response: { value: string[]; }) => {
+    //   if (response) {
+    //     let permissions = response.value.join(', ').toUpperCase();
+    //     ALLROUTES.forEach(element => {
+    //       if(permissions.includes(element.title.replace(' ','').toUpperCase()))
+    //         ROUTES.push(element);
+    //     });
+    //     this.menuItems = ROUTES.filter(menuItem => menuItem);
+    //   }
+    // });
     
   }
 

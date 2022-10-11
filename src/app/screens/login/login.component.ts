@@ -20,6 +20,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DataTableComponent } from 'src/app/components/data-table/data-table/data-table.component';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-login',
@@ -40,6 +41,7 @@ import { MatCardModule } from '@angular/material/card';
     MatDialogModule,
     MatCheckboxModule,
     MatCardModule,
+    MatIconModule,
     DataTableComponent,
     MatSnackBarModule
   ]

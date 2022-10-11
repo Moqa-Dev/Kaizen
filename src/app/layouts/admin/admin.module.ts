@@ -9,6 +9,8 @@ import { Interceptor } from 'src/app/interceptors/interceptor';
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { FooterComponent } from 'src/app/components/footer/footer.component';
 import { NavbarComponent } from 'src/app/components/navbar/navbar.component';
+import { SidebarComponent } from 'src/app/components/sidebar/sidebar.component';
+import { DashboardComponent } from 'src/app/screens/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +20,9 @@ import { NavbarComponent } from 'src/app/components/navbar/navbar.component';
     CommonModule,
     RouterModule.forChild(AdminRoutes),
     FooterComponent,
+    SidebarComponent,
     NavbarComponent,
-    MatSnackBarModule
+    MatSnackBarModule,
   ],
   providers: [
     AuthGuard,

@@ -19,7 +19,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DataTableComponent } from 'src/app/components/data-table/data-table/data-table.component';
-//import {ChartsModule, MDBBootstrapModule} from "angular-bootstrap-md";
+import {ChartsModule, MDBBootstrapModule} from "angular-bootstrap-md";
 
 @Component({
   selector: 'app-dashboard',
@@ -40,9 +40,9 @@ import { DataTableComponent } from 'src/app/components/data-table/data-table/dat
     MatDividerModule,
     MatDialogModule,
     DataTableComponent,
-    MatSnackBarModule
-    // ChartsModule,
-    // MDBBootstrapModule
+    MatSnackBarModule,
+    ChartsModule,
+    MDBBootstrapModule
   ]
 })
 export class DashboardComponent implements OnInit {

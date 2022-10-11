@@ -19,6 +19,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { DataTableComponent } from 'src/app/components/data-table/data-table/data-table.component';
 import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-register',
@@ -39,6 +40,7 @@ import { MatCardModule } from '@angular/material/card';
     MatDividerModule,
     MatDialogModule,
     MatCardModule,
+    MatIconModule,
     DataTableComponent,
     MatSnackBarModule
   ]

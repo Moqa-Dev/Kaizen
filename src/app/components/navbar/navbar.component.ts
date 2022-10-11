@@ -71,7 +71,7 @@ export class NavbarComponent implements OnInit {
   }
 
   goToProfile() {
-    this.router.navigate(['profile'])
+    this.router.navigate(['admin/profile'])
   }
 
   /*addUser() {

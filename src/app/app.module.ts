@@ -6,6 +6,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AppConfigModule } from './app-config/app-config.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CommonModule } from '@angular/common';
+import { FooterComponent } from './components/footer/footer.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +21,15 @@ import { AppConfigModule } from './app-config/app-config.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    AppConfigModule
+    AppConfigModule,
+    MatSnackBarModule,
+
+    //TODO: related to Admin routing issue
+    CommonModule,
+    FooterComponent,
+    SidebarComponent,
+    NavbarComponent,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

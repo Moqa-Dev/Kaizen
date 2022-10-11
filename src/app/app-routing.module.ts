@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminComponent } from './layouts/admin/admin.component';
+import { LandingComponent } from './layouts/landing/landing.component';
+import { ThemeComponent } from './layouts/theme/theme.component';
 
 const routes: Routes = [
   {
@@ -16,10 +19,8 @@ const routes: Routes = [
     }]
   }, {
     path: 'admin',
-    children: [{
-      path: '',
-      loadChildren: () => import('./layouts/admin/admin.module').then(x => x.AdminModule)
-    }]
+    component: AdminComponent, //TODO: Remove This, added to load components inside admin layout, children was overriding layout
+    loadChildren: () => import('./layouts/admin/admin.module').then(x => x.AdminModule)
   }, {
     path: '',
     redirectTo: 'landing',

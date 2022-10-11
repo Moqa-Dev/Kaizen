@@ -5,13 +5,13 @@
     </button>
     <div class="navbar-wrapper logo" *ngIf="!isLoggedIn()">
         <a [routerLink]="['/dashboard']" class="navbar-brand simple-text">
-            <img *ngIf="isMobile" src="/assets/img/Icon.png"/>
+            <img *ngIf="isMobile" src="/assets/img/moqa.png"/>
             <span *ngIf="isMobile" style="margin: 0 0.5rem">Kaizen</span>
         </a>
     </div>
     <div class="navbar-wrapper logo" *ngIf="isLoggedIn()">
         <a [routerLink]="['/dashboard']" class="navbar-brand simple-text">
-            <img src="/assets/img/Icon.png"/>
+            <img src="/assets/img/moqa.png"/>
             <span *ngIf="!isMobile" style="margin: 0 0.5rem">Kaizen</span>
             <span *ngIf="isMobile" style="margin: 0 0.5rem"><a class="navbar-brand">{{getTitle()}}</a></span>
         </a>
@@ -21,7 +21,7 @@
     </div>
     <!--<div *ngIf="!isLoggedIn()" class="navbar-wrapper logo">
         <a class="navbar-brand simple-text">
-            <img src="/assets/img/Icon.png" alt="logo"/>
+            <img src="/assets/img/moqa.png" alt="logo"/>
         </a>
     </div>-->
     <div class="spacer"></div>

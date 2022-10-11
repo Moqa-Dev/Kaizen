@@ -9,9 +9,9 @@
         <app-footer></app-footer>
     </div>
     <div *ngIf="loginService.isLoggedIn()" [ngClass]="showSidebar ? 'show-sidebar' : ''"
-         class="sidebar" data-color="danger" data-background-color="white" data-image="./assets/img/Icon.png">
+         class="sidebar" data-color="danger" data-background-color="white" data-image="./assets/img/moqa.png">
         <app-sidebar *ngIf="showSidebar"
                      (hideSidebarEvent)="toggleSidebar()"></app-sidebar>
-        <div class="sidebar-background" style="background-image: url(./assets/img/Icon.png)"></div>
+        <div class="sidebar-background" style="background-image: url(./assets/img/moqa.png)"></div>
     </div>
 </div>

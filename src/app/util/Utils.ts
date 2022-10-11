@@ -1,7 +1,8 @@
+import {NotificationLevel} from "../models/enums/code-enums/notification-level";
 import {FormGroup} from "@angular/forms";
-import {PaginationSize} from "../models/pagination-size";
+import {PaginationSize} from "../models/enums/code-enums/pagination-size";
 
-declare const $: any;
+//declare const $: any;
 
 export default class Utils {
   // capitalize the first character in a string
@@ -21,6 +22,33 @@ export default class Utils {
     }
 
     return input;
+  }
+
+  // return values are css classes defined in styles.scss
+  static notificationLevel(level: NotificationLevel): string {
+    if (level == NotificationLevel.SUCCESS) {
+      return 'snackbar-success';
+    } else if (level == NotificationLevel.ERROR) {
+      return 'snackbar-error';
+    }
+    return '';
+  }
+
+  static getErrorMessage(form: FormGroup, field: string): string {
+    if (form.controls[field].hasError('isWhiteSpace')) {
+      return 'This field is required and cannot be just spaces';
+    } else if (form.controls[field].hasError('haveInSpace')) {
+      return 'This field cannot have spaces, just letters and digits';
+    } else if (form.controls[field].hasError('required')) {
+      return 'This field is required';
+    } else if (form.controls[field].hasError('email')) {
+      return 'Please enter a valid email';
+    }
+    return '';
+  }
+
+  static formatDateToString(date: Date): string {
+    return new Date(date).toLocaleString('en-GB');
   }
 
   static isColor(strColor: string){
@@ -43,6 +71,7 @@ export default class Utils {
   }
 
   static isMobile() {
-    return $(window).width() <= 991;
+    //this.innerWidth = window.innerWidth;
+    return window.innerWidth <= 991;
   }
 }

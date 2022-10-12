@@ -1,5 +1,5 @@
 <mat-toolbar [ngClass]="isLoggedIn() ? 'horizontal-line' : ''"
-             [style.background-color]="isLoggedIn() ? '#FFFFFF' : 'transparent'">
+             >
     <button *ngIf="isLoggedIn()" mat-icon-button (click)="toggleSidebar()">
         <mat-icon>menu</mat-icon>
     </button>

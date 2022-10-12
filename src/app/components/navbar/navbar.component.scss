@@ -1,7 +1,7 @@
 //@import "src/assets/scss/colors";
 
 .horizontal-line {
-  border-bottom: 1px solid hsla(169, 12%, 28%, 0.15);
+  border-bottom: 1px solid opacify($color: grey, $amount: 0.7);
 }
 
 .logo-img {
@@ -24,7 +24,7 @@ div.logo {
 
 div.logo a {
   height: inherit;
-  color: black;
+  // color: black;
 }
 
 .spacer {

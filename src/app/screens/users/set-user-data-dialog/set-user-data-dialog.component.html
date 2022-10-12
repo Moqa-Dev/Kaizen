@@ -48,8 +48,8 @@
                 <div class="row" style="position: sticky; bottom: 5.4%; z-index: 1">
                     <div class="col-12">
                         <mat-dialog-actions>
-                            <button mat-button matDialogClose="cancel" class="cancel-color">cancel</button>
-                            <button mat-button type="submit" class="submit-color" [matDialogClose]="updateForm"
+                            <button mat-raised-button color="warn" matDialogClose="cancel" class="cancel-color">cancel</button>
+                            <button mat-raised-button color="primary" type="submit" class="submit-color" [matDialogClose]="updateForm"
                                     [disabled]="!updateForm.valid">
                                 Update
                             </button>

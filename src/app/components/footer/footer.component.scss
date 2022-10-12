@@ -1,5 +1,4 @@
-//@import "src/assets/scss/colors";
-$primary-color: pink;
+@import '/src/assets/themes/colors.scss';
 
 
 .copyright{
@@ -15,7 +14,7 @@ a {
 .footer {
   position: fixed;
   bottom: 0;
-  left: 0;
-  width: 100%;
+  //left: 0;
+  width:100%;
   border-top: 1px solid opacify($color: grey, $amount: 0.7);
 }

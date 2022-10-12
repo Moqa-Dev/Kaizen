@@ -1,8 +1,4 @@
-//@import "src/assets/scss/colors";
-//@import "src/assets/scss/colors.scss";
-$primary-color: pink;
-
-$secondary-color: pink;
+@import '/src/assets/themes/colors.scss';
 
 .primary-text {
   color: $primary-color;
@@ -22,5 +18,5 @@ $secondary-color: pink;
 }
 
 .cancel-color {
-  background-color: $secondary-color;
+  background-color: $warn-color;
 }

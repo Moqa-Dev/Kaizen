@@ -1,9 +1,14 @@
 <div class="sidebar-wrapper">
+    <div class="profile">
+        <img src="/assets/img/moqa-sb.png" alt="profile_picture">
+        <h3>MoQa</h3>
+        <p>Kaizen Template</p>
+    </div>
     <ul class="nav" (click)="hideSidebar()">
         <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
             <a class="nav-link" [routerLink]="[menuItem.path]">
-                <i class="material-icons">{{menuItem.icon}}</i>
-                <p>{{menuItem.title}}</p>
+                <i class="material-icons link-icon">{{menuItem.icon}} </i>
+                <p class="link-title">{{menuItem.title}}</p>
             </a>
         </li>
         <li >
@@ -12,11 +17,11 @@
                 <p></p>
             </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a class="nav-link system-ok">
                 <i class="material-icons color-white Valid">verified_user</i>
                 <p>System OK</p>
             </a>
-        </li>
+        </li> -->
     </ul>
 </div>

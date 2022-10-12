@@ -1,24 +1,24 @@
-<mat-toolbar [ngClass]="isLoggedIn() ? 'horizontal-line' : ''"
+<mat-toolbar class="trans" [ngClass]="isLoggedIn() ? 'horizontal-line' : ''"
              >
     <button *ngIf="isLoggedIn()" mat-icon-button (click)="toggleSidebar()">
         <mat-icon>menu</mat-icon>
     </button>
     <div class="navbar-wrapper logo" *ngIf="!isLoggedIn()">
-        <a [routerLink]="['/dashboard']" class="navbar-brand simple-text">
-            <img *ngIf="isMobile" src="/assets/img/moqa.png"/>
+        <a class="navbar-brand simple-text">
+            <img *ngIf="isMobile" src="/assets/img/moqa-nav.png"/>
             <span *ngIf="isMobile" style="margin: 0 0.5rem">Kaizen</span>
         </a>
     </div>
     <div class="navbar-wrapper logo" *ngIf="isLoggedIn()">
-        <a [routerLink]="['/dashboard']" class="navbar-brand simple-text">
-            <img src="/assets/img/moqa.png"/>
+        <a class="navbar-brand simple-text">
+            <img src="/assets/img/moqa-nav.png"/>
             <span *ngIf="!isMobile" style="margin: 0 0.5rem">Kaizen</span>
-            <span *ngIf="isMobile" style="margin: 0 0.5rem"><a class="navbar-brand">{{getTitle()}}</a></span>
+            <span *ngIf="!isMobile" style="margin: 0 0.5rem"><a class="navbar-brand"><strong>|</strong> &nbsp;&nbsp;{{getTitle()}}</a></span>
         </a>
     </div>
-    <div *ngIf="!isMobile && isLoggedIn()" class="navbar-wrapper">
+    <!-- <div *ngIf="!isMobile && isLoggedIn()" class="navbar-wrapper">
         <a class="navbar-brand">{{getTitle()}}</a>
-    </div>
+    </div> -->
     <!--<div *ngIf="!isLoggedIn()" class="navbar-wrapper logo">
         <a class="navbar-brand simple-text">
             <img src="/assets/img/moqa.png" alt="logo"/>

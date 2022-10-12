@@ -1,9 +1,4 @@
-//@import "src/assets/scss/colors.scss";
-
-
-$primary-color: pink;
-
-$secondary-color: pink;
+@import '/src/assets/themes/colors.scss';
 
 .fab-overlay {
   margin-bottom: -1%;
@@ -35,7 +30,7 @@ a:hover {
 
 mat-header-cell {
   font-weight: bold;
-  color: $secondary-color;
+  color: $warn-color;
 }
 
 :host ::ng-deep .mat-sort-header-button {
@@ -50,7 +45,7 @@ mat-header-cell {
 }
 
 .secondary-color {
-  color: $secondary-color !important;
+  color: $warn-color !important;
   background-color: inherit !important;
 }
 

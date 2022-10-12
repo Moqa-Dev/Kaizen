@@ -1,17 +1,12 @@
 <mat-progress-bar *ngIf="showProgressBar" mode="indeterminate"></mat-progress-bar>
 <div class="wrapper">
-    <div class="move-forward">
-        <app-navbar [isMobile]="isMobileView" (showSidebar)="toggleSidebar()"></app-navbar>
-    </div>
+    <app-navbar class="nav" [isMobile]="isMobileView" (showSidebar)="toggleSidebar()"></app-navbar>
     <div class="main-panel" [ngClass]="showSidebar && loginService.isLoggedIn() ? 'hide-main-panel' : 'show-main-panel'"
          [style.width]="!loginService.isLoggedIn() || !showSidebar ? '100%' : ''">
         <router-outlet></router-outlet>
-        <app-footer></app-footer>
     </div>
-    <div *ngIf="loginService.isLoggedIn()" [ngClass]="showSidebar ? 'show-sidebar' : ''"
-         class="sidebar" data-color="danger" data-background-color="white" data-image="./assets/img/moqa.png">
-        <app-sidebar *ngIf="showSidebar"
-                     (hideSidebarEvent)="toggleSidebar()"></app-sidebar>
-        <div class="sidebar-background" style="background-image: url(./assets/img/moqa.png)"></div>
+    <div *ngIf="loginService.isLoggedIn()" [ngClass]="showSidebar ? 'show-sidebar' : ''" >
+        <app-sidebar class="sidebar" *ngIf="showSidebar" (hideSidebarEvent)="toggleSidebar()"></app-sidebar>
     </div>
+    <app-footer class="footer"></app-footer>
 </div>

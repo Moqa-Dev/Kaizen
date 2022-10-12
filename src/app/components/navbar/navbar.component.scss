@@ -1,8 +1,8 @@
 //@import "src/assets/scss/colors";
 
-.horizontal-line {
-  border-bottom: 1px solid opacify($color: grey, $amount: 0.7);
-}
+// .horizontal-line {
+//   // border-bottom: 1px solid opacify($color: grey, $amount: 0.7);
+// }
 
 .logo-img {
   height: 120%;
@@ -18,8 +18,9 @@ img {
 }
 
 div.logo {
-  height: 100%;
-  width: 20%;
+  margin-left: 20px;
+  height: 45px;
+  width: auto;
 }
 
 div.logo a {
@@ -37,4 +38,13 @@ div.logo a {
 
 .hide-logo {
   display: none;
+}
+
+.trans{
+  background: transparent;
+  // padding: 0 !important;
+}
+
+*{
+  color: white;
 }

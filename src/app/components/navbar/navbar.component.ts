@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ThemeService } from 'src/app/services/theme.service';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-navbar',
@@ -21,6 +22,7 @@ import { ThemeService } from 'src/app/services/theme.service';
     MatIconModule,
     MatMenuModule,
     MatToolbarModule,
+    MatButtonModule,
   ]
 })
 export class NavbarComponent implements OnInit {

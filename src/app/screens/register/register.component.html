@@ -61,7 +61,7 @@
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-12">
-                                                            <button class="col-12 submit-color" mat-flat-button
+                                                            <button mat-raised-button color="primary" class="col-12 submit-color" mat-flat-button
                                                                     type="submit"
                                                                     [disabled]="!registerForm.valid">
                                                                 Register
@@ -69,8 +69,8 @@
                                                         </div>
                                                         <div class="col-12 mt-2">
                                                             <a [routerLink]="['/login']">
-                                                                <button class="col-12 cancel-color" mat-flat-button>
-                                                                    Login
+                                                                <button mat-raised-button color="warn" class="col-12" mat-flat-button>
+                                                                    Cancel
                                                                 </button>
                                                             </a>
                                                         </div>

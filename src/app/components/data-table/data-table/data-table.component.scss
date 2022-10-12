@@ -30,7 +30,7 @@ a:hover {
 
 mat-header-cell {
   font-weight: bold;
-  color: $warn-color;
+  color: $primary-color;
 }
 
 :host ::ng-deep .mat-sort-header-button {
@@ -45,7 +45,7 @@ mat-header-cell {
 }
 
 .secondary-color {
-  color: $warn-color !important;
+  color: $primary-color !important;
   background-color: inherit !important;
 }
 

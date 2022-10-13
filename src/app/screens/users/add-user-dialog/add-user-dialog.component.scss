@@ -1,5 +1,11 @@
+@import '/node_modules/bootstrap/dist/css/bootstrap-grid';
+
 .align-right {
     display: flex;
     padding: 0 21px;
     justify-content: flex-end;
+}
+mat-form-field{
+    @extend .col-12;
+
 }

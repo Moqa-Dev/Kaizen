@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>Manage Role Users</h1>
 <mat-divider></mat-divider>
 <div mat-dialog-content *ngIf="users.length > 0">
-    <div class="row">
+    <div class="row" style="padding: 10px;">
         <div class="col-md-12">
             <form [formGroup]="updateForm" (ngSubmit)="submit()">
                 
@@ -9,19 +9,18 @@
                     <input type="checkbox" [formControlName]="i" [value]="users[i].userID">
                     {{users[i].username}}
                   </label>
-
-                <div class="row" style="position: sticky; bottom: 5.4%; z-index: 1">
-                    <div class="col-12">
-                        <mat-dialog-actions>
-                            <button mat-button matDialogClose="cancel" class="cancel-color">cancel</button>
-                            <button mat-button type="submit" class="submit-color" [matDialogClose]="updateForm"
-                                    [disabled]="!updateForm.valid">
-                                Update
-                            </button>
-                        </mat-dialog-actions>
-                    </div>
-                </div>
             </form>
         </div>
     </div>
+</div>
+
+<mat-divider></mat-divider>
+<div class="col-md-12 align-right">
+    <mat-dialog-actions>
+        <button mat-raised-button color="warn" matDialogClose="cancel">cancel</button>
+        <button mat-raised-button color="accent" type="submit" [matDialogClose]="updateForm"
+            [disabled]="!updateForm.valid">
+            Add
+        </button>
+    </mat-dialog-actions>
 </div>

@@ -14,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DataTableComponent } from 'src/app/components/data-table/data-table/data-table.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-set-user-roles-dialog',
@@ -32,7 +33,8 @@ import { DataTableComponent } from 'src/app/components/data-table/data-table/dat
     MatTooltipModule,
     MatDividerModule,
     MatDialogModule,
-    DataTableComponent
+    DataTableComponent,
+    MatIconModule,
   ]
 })
 export class SetUserRolesDialogComponent {

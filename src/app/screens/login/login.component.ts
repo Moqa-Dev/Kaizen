@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {LoginUserDTO} from "../../models/users-models/LoginUserDTO";
 import {LoginService} from "../../services/login.service";
-import {Router} from "@angular/router";
+import {Router, RouterModule} from "@angular/router";
 import {Title} from "@angular/platform-browser";
 import Utils from "../../util/Utils";
 import {MatCheckboxChange, MatCheckboxModule} from "@angular/material/checkbox";
@@ -29,6 +29,7 @@ import { MatIconModule } from '@angular/material/icon';
   standalone: true,
   imports: [
     CommonModule,
+    RouterModule,
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,

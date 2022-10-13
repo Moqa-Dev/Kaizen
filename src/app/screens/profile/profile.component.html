@@ -5,7 +5,7 @@
                 <mat-card class="card-profile">
                     <div class="col-12 mb-4 card-avatar">
                         <a>
-                            <img class="img" src="./assets/img/moqa.png" alt="profile"/>
+                            <img class="profile-img" src="./assets/img/moqa-profile.png" alt="profile"/>
                         </a>
                     </div>
                     <form [formGroup]="updateUserForm" class="col-12">
@@ -50,15 +50,15 @@
                                       id="about" cols="30" rows="5"></textarea>
                         </mat-form-field>
                         <div *ngIf="editProfileMode; else viewProfileMode">
-                            <button mat-button class="cancel-color m-1" (click)="disableUpdateProfile()">cancel</button>
-                            <button mat-button type="submit" class="submit-color m-1"
+                            <button mat-raised-button color="warn" class="m-1" (click)="disableUpdateProfile()">cancel</button>
+                            <button mat-raised-button color="accent" type="submit" class="m-1"
                                     [disabled]="!updateUserForm.valid" (click)="updateUserData()">
                                 Save
                             </button>
                         </div>
                         <ng-template #viewProfileMode>
                             <div>
-                                <button mat-button type="submit" class="submit-color" (click)="enableUpdateProfile()">
+                                <button mat-raised-button color="accent" type="submit" (click)="enableUpdateProfile()">
                                     Edit Profile
                                 </button>
                             </div>
@@ -70,7 +70,7 @@
                 <mat-card class="card-profile">
                     <div class="col-12 mb-4 card-avatar" style="visibility: hidden">
                         <a>
-                            <img class="img" src="./assets/img/moqa.png" alt="profile"/>
+                            <img class="profile-img" src="./assets/img/moqa-profile.png" alt="profile"/>
                         </a>
                     </div>
                     <form [formGroup]="updatePasswordForm">
@@ -99,15 +99,15 @@
                                     *ngIf="updatePasswordForm.controls.newPassword.invalid">{{getErrorMessage('newPassword')}}</mat-error>
                         </mat-form-field>
                         <div class="margin-top" *ngIf="editPasswordMode; else viewPasswordMode">
-                            <button mat-button class="cancel-color m-1" (click)="disableUpdatePassword()">cancel</button>
-                            <button mat-button type="submit" class="submit-color m-1"
+                            <button mat-raised-button color="warn" class="m-1" (click)="disableUpdatePassword()">cancel</button>
+                            <button mat-raised-button color="accent" type="submit" class="m-1"
                                     [disabled]="!updatePasswordForm.valid" (click)="updateUserPassword()">
                                 Save
                             </button>
                         </div>
                         <ng-template #viewPasswordMode>
                             <div class="margin-top">
-                                <button mat-button type="submit" class="submit-color" (click)="enableUpdatePassword()">
+                                <button mat-raised-button color="accent" type="submit" (click)="enableUpdatePassword()">
                                     Edit Password
                                 </button>
                             </div>

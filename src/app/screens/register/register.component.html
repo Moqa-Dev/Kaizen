@@ -1,11 +1,11 @@
-<div class="main-content">
+<div class="center-screen">
     <div class="container-fluid">
         <div class="row">
             <div class="offset-lg-2 offset-md-0 offset-sm-0 col-lg-8 col-md-12 col-sm-12">
                 <mat-card>
                     <mat-card-content>
                         <div class="row">
-                            <div class="col-lg-7 background"></div>
+                            <div class="col-lg-7 col-md-12 col-sm-12 background"></div>
                             <div class="col-lg-5 col-md-12 col-sm-12">
                                 <form [formGroup]="registerForm" (ngSubmit)="register()">
                                     <div class="row">
@@ -69,7 +69,7 @@
                                                         </div>
                                                         <div class="col-12 mt-2">
                                                             <a [routerLink]="['/login']">
-                                                                <button mat-raised-button color="warn" class="col-12" mat-flat-button>
+                                                                <button mat-raised-button class="col-12 cancel-color">
                                                                     Cancel
                                                                 </button>
                                                             </a>

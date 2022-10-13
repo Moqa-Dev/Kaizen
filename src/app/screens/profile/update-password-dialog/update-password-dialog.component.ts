@@ -16,6 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DataTableComponent } from 'src/app/components/data-table/data-table/data-table.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-update-password-dialog',
@@ -35,7 +36,8 @@ import { DataTableComponent } from 'src/app/components/data-table/data-table/dat
     MatDividerModule,
     MatDialogModule,
     DataTableComponent,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatIconModule
   ]
 })
 export class UpdatePasswordDialogComponent {

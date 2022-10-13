@@ -1,15 +1,13 @@
-////@import "src/assets/scss/colors";
-//@import "src/assets/scss/colors.scss";
-
-$secondary-color: pink;
+@import '/src/assets/themes/colors.scss';
 
 .background {
   padding: 5%;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("../../../assets/img/moqa.png");
+  background-image: url("../../../assets/img/moqa-login.png");
   background-origin: content-box;
+  min-height: 200px;
 }
 
 .card {
@@ -17,5 +15,26 @@ $secondary-color: pink;
 }
 
 .cancel-color {
-  background-color: $secondary-color;
+  background-color: $warn-color;
+}
+
+.center-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+@import '/node_modules/bootstrap/dist/css/bootstrap-grid';
+
+mat-form-field{
+    @extend .col-12;
+
+}
+
+.card-header{
+  background-color: $accent-color;
+  z-index: 5;
+  box-shadow: 0px 3px rgba($color: #000000, $alpha: 0.3);
 }

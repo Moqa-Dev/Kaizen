@@ -3,6 +3,9 @@ import {MatDialogModule, MAT_DIALOG_DATA} from "@angular/material/dialog";
 import Utils from "../../util/Utils";
 import {TreeNode} from "../../models/tree-node";
 import { MatDividerModule } from '@angular/material/divider';
+import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 declare const $: any;
 
@@ -12,8 +15,11 @@ declare const $: any;
   styleUrls: ['./view-popup.component.scss'],
   standalone: true,
   imports:[
+    CommonModule,
     MatDialogModule,
     MatDividerModule,
+    MatButtonModule,
+    MatIconModule
   ]
 })
 export class ViewPopupComponent {

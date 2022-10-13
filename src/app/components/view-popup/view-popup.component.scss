@@ -6,3 +6,8 @@
   position: sticky;
   bottom: 4%;
 }
+.align-right {
+  display: flex;
+  padding: 0 21px;
+  justify-content: flex-end;
+}

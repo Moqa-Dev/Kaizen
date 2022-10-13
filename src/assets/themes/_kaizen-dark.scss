@@ -1,11 +1,9 @@
-@use '@angular/material' as mat;
-
-@include mat.core();
+@import 'colors';
 
 // Define a dark theme
-$dark-primary: mat.define-palette(mat.$blue-palette);
-$dark-accent: mat.define-palette(mat.$blue-grey-palette);
-$dark-warn: mat.define-palette(mat.$deep-orange-palette);
+$dark-primary: mat.define-palette($primary-palette);
+$dark-accent: mat.define-palette($accent-palette);
+$dark-warn: mat.define-palette($warn-palette);
 $dark-theme: mat.define-dark-theme((
  color: (
    primary: $dark-primary,

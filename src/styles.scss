@@ -8,11 +8,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background-color: inherit;
 }
 .snackbar-success {
-    color: white;
-    background-color: $success-color;
+    color: white !important;
+    background-color: $success-color !important;
 }
 
 .snackbar-error {
-    color: white;
-    background-color: $error-color;
+    color: white !important;
+    background-color: $error-color !important;
 }

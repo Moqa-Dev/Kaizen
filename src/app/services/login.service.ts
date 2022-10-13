@@ -39,6 +39,6 @@ export class LoginService {
     localStorage.removeItem('token');
     localStorage.removeItem('rememberMe');
     localStorage.removeItem('pageSize');
-    this.router.navigate(['login']);
+    this.router.navigate(['/admin/login']);
   }
 }

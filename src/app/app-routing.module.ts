@@ -22,7 +22,7 @@ const routes: Routes = [
     component: AdminComponent,
     loadChildren: () => import('./layouts/admin/admin.module').then(x => x.AdminModule)
   }, {
-    path: '',
+    path: '**',
     redirectTo: 'landing',
     pathMatch: 'full',
   },

@@ -127,7 +127,7 @@ export class DashboardComponent implements OnInit {
  
     let notFoundParam: string = this.route.snapshot.paramMap.get('notFound');
     if (notFoundParam == 'NotFound') {
-      this.router.navigate(['dashboard']).then(() => {
+      this.router.navigate(['/admin/dashboard']).then(() => {
         this.showNotification('Requested page is not found!', NotificationLevel.ERROR);
       });
     } else {

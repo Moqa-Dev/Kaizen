@@ -63,7 +63,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.titleService.setTitle('MOQA - Profile');
+    this.titleService.setTitle('Kaizen - Profile');
     this.getUserData();
   }
 

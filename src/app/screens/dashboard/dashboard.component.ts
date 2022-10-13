@@ -131,7 +131,7 @@ export class DashboardComponent implements OnInit {
         this.showNotification('Requested page is not found!', NotificationLevel.ERROR);
       });
     } else {
-      this.titleService.setTitle('MOQA - Dashboard');
+      this.titleService.setTitle('Kaizen - Dashboard');
       this.getDashboardData();
     }
   }

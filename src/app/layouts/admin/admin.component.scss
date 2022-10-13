@@ -54,7 +54,8 @@ mat-progress-bar {
 .nav{
   background: $accent-color;
   left: 0;
-  position: relative;
+  position: fixed;
+  width: 100%;
   height: 70px;
   max-height: 70px;
   z-index: 5;
@@ -75,7 +76,8 @@ mat-progress-bar {
 
 .wrapper .main-panel{
 	// transition: all 0.5s ease;
-  padding: 10px;
+  padding-bottom: 15px;
+  padding-top: 75px;
 }
 
 .hide-main-panel{

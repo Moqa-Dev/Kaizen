@@ -39,3 +39,15 @@ div.logo a {
 .hide-logo {
   display: none;
 }
+
+.white-color{
+  color: white !important;
+}
+
+.white-color > *{
+  color: white !important;
+}
+
+.white-icon svg {
+  fill: white !important;
+}

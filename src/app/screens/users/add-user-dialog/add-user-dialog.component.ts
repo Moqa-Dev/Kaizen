@@ -6,10 +6,10 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { DataTableComponent } from 'src/app/components/data-table/data-table/data-table.component';
 import Utils from "../../../util/Utils";
 
 @Component({
@@ -29,7 +29,7 @@ import Utils from "../../../util/Utils";
     MatTooltipModule,
     MatDividerModule,
     MatDialogModule,
-    DataTableComponent
+    MatIconModule,
   ]
 })
 export class AddUserDialogComponent {

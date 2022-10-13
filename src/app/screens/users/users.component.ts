@@ -121,6 +121,7 @@ export class UsersComponent implements OnInit {
   addUser() {
     let dialogRef = this.dialog.open(AddUserDialogComponent, {
       width: '50%',
+      maxHeight: '90%',
       disableClose: true
     });
 

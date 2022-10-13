@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>{{data[elementsNames[0]]}}</h1>
+<mat-divider></mat-divider>
+<div mat-dialog-content>
+    <dl class="row">
+        <ng-container *ngFor="let element of elementsNamesToDisplay | slice : 1; let i = index">
+            <dt class="col-4" style="padding-top: 0.75rem"><strong>{{element}}:</strong></dt>
+            <ng-container *ngIf="isTreeNode(data[elementsNames[i + 1]], i + 1); else notTree">
+                <div class="col-8 tree" *ngIf="!isEmptyTreeNode(data[elementsNames[i + 1]], i + 1); else emptyTree">
+                    <div id="tree{{i + 1}}"></div>
+                </div>
+                <ng-template #emptyTree>
+                    <div class="col-8" style="padding-top: 0.75rem">
+                        -
+                    </div>
+                </ng-template>
+            </ng-container>
+            <ng-template #notTree>
+                <dd class="col-8" style="padding-top: 0.75rem">
+                    {{data[elementsNames[i + 1]] &&
+                data[elementsNames[i + 1]].length > 0 ? data[elementsNames[i + 1]] : '-'}}
+                </dd>
+            </ng-template>
+        </ng-container>
+    </dl>
+</div>
+
+<mat-divider></mat-divider>
+<div class="col-md-12 align-right">
+    <mat-dialog-actions>
+        <button mat-raised-button color="accent" matDialogClose="close">close</button>
+    </mat-dialog-actions>
+</div>

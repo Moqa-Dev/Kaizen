@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Manage Role Permissions</h1>
+<mat-divider></mat-divider>
+<div mat-dialog-content *ngIf="permissions.length > 0">
+    <div class="row" style="padding: 10px;">
+        <div class="col-md-12">
+            <form [formGroup]="updateForm" (ngSubmit)="submit()">
+                
+                <label formArrayName="permissions" *ngFor="let role of permissionsFormArray?.controls; let i = index" class="col-12">
+                    <input type="checkbox" [formControlName]="i" [value]="permissions[i]" >
+                    {{permissions[i]}}
+                  </label>
+            </form>
+        </div>
+    </div>
+</div>
+
+<mat-divider></mat-divider>
+<div class="col-md-12 align-right">
+    <mat-dialog-actions>
+        <button mat-raised-button color="warn" matDialogClose="cancel">cancel</button>
+        <button mat-raised-button color="accent" type="submit" [matDialogClose]="updateForm"
+            [disabled]="!updateForm.valid">
+            Add
+        </button>
+    </mat-dialog-actions>
+</div>

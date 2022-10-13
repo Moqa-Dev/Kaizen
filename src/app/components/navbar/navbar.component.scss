@@ -1,0 +1,53 @@
+//@import "src/assets/scss/colors";
+
+// .horizontal-line {
+//   // border-bottom: 1px solid opacify($color: grey, $amount: 0.7);
+// }
+
+.logo-img {
+  height: 120%;
+  display: inline-block;
+}
+
+img {
+  height: inherit;
+}
+
+.simple-text, .navbar-brand {
+  font-weight: 400;
+}
+
+div.logo {
+  margin-left: 20px;
+  height: 45px;
+  width: auto;
+}
+
+div.logo a {
+  height: inherit;
+  // color: black;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.navbar-nav {
+  float: right;
+}
+
+.hide-logo {
+  display: none;
+}
+
+.white-color{
+  color: white !important;
+}
+
+.white-color > *{
+  color: white !important;
+}
+
+.white-icon svg {
+  fill: white !important;
+}

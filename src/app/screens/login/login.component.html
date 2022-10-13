@@ -1,0 +1,86 @@
+<div class="center-screen">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="offset-lg-2 offset-md-0 offset-sm-0 col-lg-8 col-md-12 col-sm-12">
+                <mat-card>
+                    <mat-card-content>
+                        <div class="row">
+                            <div class="col-lg-7 col-md-12 col-sm-12 background"></div>
+                            <div class="col-lg-5 col-md-12 col-sm-12">
+                                <form [formGroup]="loginForm" (ngSubmit)="login()">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <div class="row">
+                                                        <div class="offset-1 col-10">
+                                                            <h3>Login</h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="offset-1 col-10">
+                                                            <mat-form-field>
+                                                                <mat-label>Username</mat-label>
+                                                                <input matInput formControlName="username" type="text">
+                                                                <mat-error
+                                                                        *ngIf="loginForm.controls.username.invalid">{{getErrorMessage('username')}}</mat-error>
+                                                            </mat-form-field>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="offset-1 col-10">
+                                                            <mat-form-field>
+                                                                <mat-label>Password</mat-label>
+                                                                <input matInput formControlName="password"
+                                                                       [type]="hidePassword ? 'password' : 'text'">
+                                                                <mat-icon matSuffix
+                                                                          (click)="hidePassword = !hidePassword">
+                                                                    {{hidePassword ? 'visibility_off' : 'visibility'}}
+                                                                </mat-icon>
+                                                                <mat-error
+                                                                        *ngIf="loginForm.controls.password.invalid">{{getErrorMessage('password')}}</mat-error>
+                                                            </mat-form-field>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="offset-1 col-10">
+                                                            <mat-checkbox  [checked]="rememberMe"
+                                                                          (change)="changeRememberMe($event)">
+                                                                <span class="primary-text">Remember Me</span>
+                                                            </mat-checkbox>
+                                                        </div>
+                                                        <!-- <div class="offset-1 col-10">
+                                                            <p class="primary-text">Forgot Password?</p>
+                                                        </div> -->
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="offset-1 col-10">
+                                                            <button mat-raised-button color="accent" class="col-12 submit-color" mat-flat-button
+                                                                    type="submit"
+                                                                    [disabled]="!loginForm.valid">
+                                                                Login
+                                                            </button>
+                                                        </div>
+                                                        <div class="offset-1 col-10 mt-2">
+                                                            <a [routerLink]="['/admin/register']">
+                                                                <button class="col-12 cancel-color" mat-flat-button>
+                                                                    Register
+                                                                </button>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

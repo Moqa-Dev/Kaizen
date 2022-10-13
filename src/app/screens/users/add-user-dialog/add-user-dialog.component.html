@@ -1,0 +1,43 @@
+<h1 mat-dialog-title>Add new user</h1>
+<div mat-dialog-content>
+    <mat-divider></mat-divider>
+</div>
+<div mat-dialog-content>
+    <div class="row" style="padding: 10px;">
+        <div class="col-md-12">
+            <form [formGroup]="registerForm">
+                <mat-form-field>
+                    <mat-label>Username*</mat-label>
+                    <input matInput formControlName="username" type="text">
+                    <mat-error *ngIf="registerForm.controls.username.invalid">{{getErrorMessage('username')}}
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Password*</mat-label>
+                    <input matInput formControlName="password" [type]="hidePassword ? 'password' : 'text'">
+                    <mat-icon matSuffix (click)="hidePassword = !hidePassword">
+                        {{hidePassword ? 'visibility_off' : 'visibility'}}
+                    </mat-icon>
+                    <mat-error *ngIf="registerForm.controls.password.invalid">{{getErrorMessage('password')}}
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Email*</mat-label>
+                    <input matInput formControlName="email" type="email">
+                    <mat-error *ngIf="registerForm.controls.email.invalid">{{getErrorMessage('email')}}</mat-error>
+                </mat-form-field>
+            </form>
+        </div>
+    </div>
+</div>
+
+<mat-divider></mat-divider>
+<div class="col-md-12 align-right">
+    <mat-dialog-actions>
+        <button mat-raised-button color="warn" matDialogClose="cancel">cancel</button>
+        <button mat-raised-button color="accent" type="submit" [matDialogClose]="registerForm"
+            [disabled]="!registerForm.valid">
+            Add
+        </button>
+    </mat-dialog-actions>
+</div>

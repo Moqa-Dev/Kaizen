@@ -1,0 +1,5 @@
+
+<div>{{data?.errorCode != null ? 'error: ' : ''}} 
+    {{data?.message != null ? data?.message : 'Something, somewhere, somehow went wrong.' }}</div>
+<div *ngIf="data?.errorCode != null && data?.errorCode > 0">{{'error code: ' + data.errorCode}}</div>
+<!-- TODO: Add Error Code -->

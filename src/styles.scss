@@ -1,0 +1,18 @@
+@import 'assets/themes/theme';
+@import 'assets/themes/colors';
+@import 'assets/scss/loader';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.card{
+    background-color: inherit;
+}
+.snackbar-success {
+    color: white !important;
+    background-color: $success-color !important;
+}
+
+.snackbar-error {
+    color: white !important;
+    background-color: $error-color !important;
+}

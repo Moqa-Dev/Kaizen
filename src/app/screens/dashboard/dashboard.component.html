@@ -1,0 +1,277 @@
+<div class="main-content">
+    <div class="container-fluid">
+        
+<!-- [CARDS START] -->
+        <div class="row">
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-warning card-header-icon">
+                        <div class="card-icon card-icon-jobs">
+                            <i class="material-icons">content_paste</i>
+                        </div>
+                        <p class="card-category">Jobs</p>
+                        <h3 class="card-title">{{jobsCount}}</h3>
+                    </div>
+                    <div class="card-footer">
+                        <a [routerLink]="['/transactions']">
+                            <div class="stats">
+                                <i class="material-icons">view_list</i> View list
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-success card-header-icon">
+                        <div class="card-icon card-icon-transactions">
+                            <i class="material-icons">assignment_turned_in</i>
+                        </div>
+                        <p class="card-category">Transactions</p>
+                        <h3 class="card-title">{{transactionsCount}}</h3>
+                    </div>
+                    <div class="card-footer">
+                        <a [routerLink]="['/transactions']">
+                            <div class="stats">
+                                <i class="material-icons">view_list</i> View list
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-danger card-header-icon">
+                        <div class="card-icon card-icon-processes">
+                            <i class="material-icons">memory</i>
+                        </div>
+                        <p class="card-category">Processes</p>
+                        <h3 class="card-title">{{processesCount}}</h3>
+                    </div>
+                    <div class="card-footer">
+                        <a [routerLink]="['/processes']">
+                            <div class="stats">
+                                <i class="material-icons">view_list</i> View list
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-info card-header-icon">
+                        <div class="card-icon card-icon-workcenters">
+                            <i class="material-icons">work</i>
+                        </div>
+                        <p class="card-category">Work Centers</p>
+                        <h3 class="card-title">{{workcentersCount}}</h3>
+                    </div>
+                    <div class="card-footer">
+                        <a [routerLink]="['/workcenters']">
+                            <div class="stats">
+                                <i class="material-icons">view_list</i> View list
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+<!-- [CARDS END] -->
+
+
+
+<div class="row">
+            
+
+    <!-- [POLAR START] -->
+    <div class="col-lg-4 col-md-12 col-sm-12" style="padding-bottom: 5%" *ngIf="polarJobStatusDataset.length > 0" >
+        <div class="card" style="height: 100%">
+            <div class="card-header  down-cards">
+                <h3>Jobs Status</h3>
+            </div>
+            <div class="col-12">
+                <div class="charts">
+                    <canvas mdbChart
+                            [chartType]="'polarArea'"
+                            [datasets]="polarJobStatusDataset"
+                            [labels]="polarJobStatusLabels"
+                            [options]="chartOptions"
+                            [legend]="false">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- [PIE START] -->
+    <div class="col-lg-4 col-md-12 col-sm-12" style="padding-bottom: 5%" *ngIf="pieTransactionsStatusDataset.length > 0" >
+        <div class="card" style="height: 100%">
+            <div class="card-header  down-cards">
+                <h3>Transactions Status</h3>
+            </div>
+            <div class="col-12">
+                <div class="charts">
+                    <canvas mdbChart
+                            [chartType]="'pie'"
+                            [datasets]="pieTransactionsStatusDataset"
+                            [labels]="pieTransactionsStatusLabels"
+                            [colors]="TransactionsStatusColors"
+                            [options]="chartOptions"
+                            [legend]="false">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- [PIE END] -->
+
+    <div class="col-lg-4 col-md-12 col-sm-12" style="padding-bottom: 5%" *ngIf="polarProcessTypeDataset.length > 0" >
+        <div class="card" style="height: 100%">
+            <div class="card-header down-cards">
+                <h3>Process Types</h3>
+            </div>
+            <div class="col-12">
+                <div class="charts">
+                    <canvas mdbChart
+                            [chartType]="'polarArea'"
+                            [datasets]="polarProcessTypeDataset"
+                            [labels]="polarProcessTypeLabels"
+                            [options]="chartOptions"
+                            [legend]="false">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- [POLAR END] -->
+</div>
+
+
+
+<!-- [RADAR START] -->
+<div class="row">
+    <div class="col-lg-6 col-md-12 col-sm-12" style="padding-bottom: 5%" *ngIf="radarTransactionsDepartmentDataset.length > 0" >
+        <div class="card" style="height: 100%">
+            <div class="card-header down-cards">
+                <h3>Departments Transactions</h3>
+            </div>
+            <div class="col-12">
+                <div class="charts">
+                    <canvas mdbChart
+                            [chartType]="'radar'"
+                            [datasets]="radarTransactionsDepartmentDataset"
+                            [labels]="radarTransactionsDepartmentLabels"
+                            [options]="chartOptions"
+                            [legend]="showLegend">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6 col-md-12 col-sm-12" style="padding-bottom: 5%" *ngIf="radarTransactionsWorkCenterDataset.length > 0" >
+        <div class="card" style="height: 100%">
+            <div class="card-header down-cards">
+                <h3>Work Centers Transactions</h3>
+            </div>
+            <div class="col-12">
+                <div class="charts">
+                    <canvas mdbChart
+                            [chartType]="'radar'"
+                            [datasets]="radarTransactionsWorkCenterDataset"
+                            [labels]="radarTransactionsWorkCenterLabels"
+                            [options]="chartOptions"
+                            [legend]="showLegend">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- [RADAR END] -->
+
+
+<!-- [LINE START] -->
+<div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12" *ngIf="chartTransactionsStatusTodayDataset.length > 0">
+            <div >
+                <div class="card">
+                    <div class="card-header down-cards">
+                        <h3>Today Transactions</h3>
+                    </div>
+                    <div class="col-12">
+                        <div class="">
+                            <div class="charts">
+                                <canvas mdbChart
+                                        [chartType]="'line'"
+                                        [datasets]="chartTransactionsStatusTodayDataset"
+                                        [labels]="chartTransactionsStatusTodayLabels"
+                                        [colors]="TransactionsStatusColors"
+                                        [options]="chartOptions"
+                                        [legend]="showLegend">
+                                </canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-12 col-sm-12" *ngIf="chartTransactionsStatusWeekDataset.length > 0">
+            <div >
+                <div class="card">
+                    <div class="card-header down-cards">
+                        <h3>Week Transactions</h3>
+                    </div>
+                    <div class="col-12">
+                        <div class="">
+                            <div class="charts">
+                                <canvas mdbChart
+                                        [chartType]="'line'"
+                                        [datasets]="chartTransactionsStatusWeekDataset"
+                                        [labels]="chartTransactionsStatusWeekLabels"
+                                        [colors]="TransactionsStatusColors"
+                                        [options]="chartOptions"
+                                        [legend]="showLegend">
+                                </canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- [LINE END] -->
+
+<!-- [Process Transactions Start] -->
+<div class="row">
+    <div class="col-12" *ngIf="pieTransactionsProcessDataset.length > 0" >
+        <div class="card">
+            <div class="card-header down-cards">
+                <h3>Processes Transactions</h3>
+            </div>
+            <div class="col-12">
+                <div class="offset-1 col-10">
+                <div class="charts">
+                    <canvas mdbChart
+                            [chartType]="'horizontalBar'"
+                            [datasets]="pieTransactionsProcessDataset"
+                            [labels]="pieTransactionsProcessLabels"
+                            [options]="chartOptions"
+                            [legend]="false">
+                    </canvas>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- [Process Transactions END] -->
+    </div>
+</div>

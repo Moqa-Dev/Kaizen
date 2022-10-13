@@ -38,9 +38,6 @@ export class NavbarComponent implements OnInit {
 
   @Input() isMobile: boolean = false;
 
-  selectedTheme: string;
-  availableThemes: string[];
-
   constructor(location: Location,
               private element: ElementRef,
               private router: Router,
@@ -48,10 +45,9 @@ export class NavbarComponent implements OnInit {
               public themeService: ThemeService,
               private titleService: Title,
               @Inject(DOCUMENT) private document: any) {
-    this.selectedTheme = themeService.currentTheme;
-    this.availableThemes = themeService.availableThemes;
     this.location = location;
     this.sidebarVisible = false;
+    this.darkMode = this.themeService.currentTheme.includes('dark');
   }
 
   ngOnInit() {
@@ -66,6 +62,7 @@ export class NavbarComponent implements OnInit {
         this.mobile_menu_visible = 0;
       }
     });
+    
   }
 
   getTitle() {

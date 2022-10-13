@@ -8,5 +8,5 @@
     <div *ngIf="loginService.isLoggedIn()" [ngClass]="showSidebar ? 'show-sidebar' : ''" >
         <app-sidebar class="sidebar" *ngIf="showSidebar" (hideSidebarEvent)="toggleSidebar()"></app-sidebar>
     </div>
-    <app-footer class="footer"></app-footer>
 </div>
+<app-footer class="footer"></app-footer>

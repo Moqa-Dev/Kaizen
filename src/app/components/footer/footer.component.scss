@@ -11,10 +11,11 @@ a {
 }
 
 
-.footer {
+.footer-st {
   position: fixed;
   bottom: 0;
   //left: 0;
   width:100%;
   border-top: 1px solid opacify($color: grey, $amount: 0.7);
+  // background-color: inherit;
 }

@@ -63,8 +63,10 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(localStorage.getItem('token') !== null)
+      this.router.navigate(['/admin/dashboard']);
     this.initForm();
-    this.titleService.setTitle('MOQA - Login');
+    this.titleService.setTitle('Kaizen - Login');
   }
 
   initForm() {
@@ -84,7 +86,7 @@ export class LoginComponent implements OnInit {
         if (response && response.token) {
           localStorage.setItem('rememberMe', String(this.rememberMe));
           localStorage.setItem('token', response.token);
-          this.router.navigate(['dashboard']);
+          this.router.navigate(['/admin/dashboard']);
         }
       });
     }

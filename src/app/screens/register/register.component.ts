@@ -17,7 +17,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DataTableComponent } from 'src/app/components/data-table/data-table/data-table.component';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -51,6 +51,7 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
 
   constructor(
+    private router: Router,
     private usersService: UsersService,
     private titleService: Title,
     private snackBar: MatSnackBar
@@ -58,7 +59,9 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.titleService.setTitle('MOQA - Register');
+    if(localStorage.getItem('token') !== null)
+      this.router.navigate(['/admin/dashboard']);
+    this.titleService.setTitle('Kaizen - Register');
     this.initForm();
   }
 
@@ -80,6 +83,7 @@ export class RegisterComponent implements OnInit {
       this.usersService.addUser(user).subscribe(response => {
         if (response) {
           this.showNotification('User Added Successfully', NotificationLevel.SUCCESS);
+          this.router.navigate(['/admin/login']);
         }
       });
     }

@@ -8,9 +8,10 @@
                 <div class="card card-stats">
                     <div class="card-header card-header-warning card-header-icon">
                         <div class="card-icon card-icon-jobs">
-                            <i class="material-icons">content_paste</i>
+                            <i class="material-icons inline-display">content_paste</i>
+                            <p class="card-category inline-display">Jobs</p>
                         </div>
-                        <p class="card-category">Jobs</p>
+                        
                         <h3 class="card-title">{{jobsCount}}</h3>
                     </div>
                     <div class="card-footer">
@@ -27,9 +28,9 @@
                 <div class="card card-stats">
                     <div class="card-header card-header-success card-header-icon">
                         <div class="card-icon card-icon-transactions">
-                            <i class="material-icons">assignment_turned_in</i>
+                            <i class="material-icons inline-display">assignment_turned_in</i>
+                            <p class="card-category inline-display">Transactions</p>
                         </div>
-                        <p class="card-category">Transactions</p>
                         <h3 class="card-title">{{transactionsCount}}</h3>
                     </div>
                     <div class="card-footer">
@@ -46,9 +47,9 @@
                 <div class="card card-stats">
                     <div class="card-header card-header-danger card-header-icon">
                         <div class="card-icon card-icon-processes">
-                            <i class="material-icons">memory</i>
+                            <i class="material-icons inline-display">memory</i>
+                            <p class="card-category inline-display">Processes</p>
                         </div>
-                        <p class="card-category">Processes</p>
                         <h3 class="card-title">{{processesCount}}</h3>
                     </div>
                     <div class="card-footer">
@@ -65,9 +66,9 @@
                 <div class="card card-stats">
                     <div class="card-header card-header-info card-header-icon">
                         <div class="card-icon card-icon-workcenters">
-                            <i class="material-icons">work</i>
+                            <i class="material-icons inline-display">work</i>
+                            <p class="card-category inline-display">Work Centers</p>
                         </div>
-                        <p class="card-category">Work Centers</p>
                         <h3 class="card-title">{{workcentersCount}}</h3>
                     </div>
                     <div class="card-footer">
@@ -212,7 +213,7 @@
                                         [chartType]="'line'"
                                         [datasets]="chartTransactionsStatusTodayDataset"
                                         [labels]="chartTransactionsStatusTodayLabels"
-                                        [colors]="TransactionsStatusColors"
+                                        [colorss]="TransactionsStatusColors"
                                         [options]="chartOptions"
                                         [legend]="showLegend">
                                 </canvas>
@@ -236,7 +237,7 @@
                                         [chartType]="'line'"
                                         [datasets]="chartTransactionsStatusWeekDataset"
                                         [labels]="chartTransactionsStatusWeekLabels"
-                                        [colors]="TransactionsStatusColors"
+                                        [colorss]="TransactionsStatusColors"
                                         [options]="chartOptions"
                                         [legend]="showLegend">
                                 </canvas>

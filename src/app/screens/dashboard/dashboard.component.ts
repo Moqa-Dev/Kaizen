@@ -113,17 +113,17 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     
 
-    this.updateSubscription = interval(30000).subscribe(
-      (val) => { 
-        if(this.router.url === '/dashboard'){
-          if (window.screen.width <= 800) {
-            this.showLegend = false;
-          }else{
-            this.showLegend = true;
-          }
-          this.getDashboardData();
-      }
-      });
+    // this.updateSubscription = interval(30000).subscribe(
+    //   (val) => { 
+    //     if(this.router.url === '/dashboard'){
+    //       if (window.screen.width <= 800) {
+    //         this.showLegend = false;
+    //       }else{
+    //         this.showLegend = true;
+    //       }
+    //       this.getDashboardData();
+    //   }
+    //   });
  
     let notFoundParam: string = this.route.snapshot.paramMap.get('notFound');
     if (notFoundParam == 'NotFound') {
@@ -132,10 +132,405 @@ export class DashboardComponent implements OnInit {
       });
     } else {
       this.titleService.setTitle('Kaizen - Dashboard');
-      this.getDashboardData();
+      // this.getDashboardData();
+      this.getMockDashboardData();
     }
   }
 
+  getMockDashboardData(){
+    let response = {
+      "cardTransactionsCount": 5546,
+      "cardJobsCount": 2129,
+      "cardWorkCentersCount": 77,
+      "cardProcessesCount": 889,
+      "polarJobStatus": {
+        "pending": 179,
+        "running": 277,
+        "stopping": 267,
+        "terminating": 365,
+        "faulted": 11,
+        "successful": 122,
+        "stopped": 123,
+        "suspended": 223,
+        "resumed": 12
+      },
+      "polarProcessType": {
+        "linear": 14,
+        "webAccess": 44,
+        "queue": 75,
+        "dataTable": 23
+      },
+      "pieTransactionsStatus": {
+        "dateTime": "2022-10-13T19:51:58.138Z",
+        "suceess": 21,
+        "initException": 56,
+        "systemException": 86,
+        "businessException": 19,
+        "notImplementedException": 54
+      },
+      "pieTransactionsProcess": [
+        {
+          "processName": "Process-1",
+          "transactionsCount": 542
+        },
+      {
+          "processName": "Process-2",
+          "transactionsCount": 433
+        },
+      {
+          "processName": "Process-3",
+          "transactionsCount": 675
+        },
+      {
+          "processName": "Process-4",
+          "transactionsCount": 458
+        }
+      ],
+      "radarTransactionsDepartment": [
+        {
+          "department": "D1",
+          "transactionsCount": {
+          "dateTime": "2022-10-11T17:51:58.138Z",
+          "suceess": 50,
+          "initException": 187,
+          "systemException": 12,
+          "businessException": 11,
+          "notImplementedException": 45
+        }
+        },
+      {
+          "department": "D2",
+          "transactionsCount": {
+          "dateTime": "2022-10-11T17:51:58.138Z",
+          "suceess": 100,
+          "initException": 87,
+          "systemException": 12,
+          "businessException": 111,
+          "notImplementedException": 245
+        }
+        },
+      {
+          "department": "D3",
+          "transactionsCount": {
+          "dateTime": "2022-10-11T17:51:58.138Z",
+          "suceess": 100,
+          "initException": 87,
+          "systemException": 12,
+          "businessException": 11,
+          "notImplementedException": 45
+        }
+        }
+      ],
+      "radarTransactionsWorkCenter": [
+      {
+          "workCenter": "W1",
+          "transactionsCount": {
+          "dateTime": "2022-10-11T17:51:58.138Z",
+          "suceess": 100,
+          "initException": 87,
+          "systemException": 12,
+          "businessException": 211,
+          "notImplementedException": 45
+        }
+        },
+      {
+          "workCenter": "W2",
+          "transactionsCount": {
+          "dateTime": "2022-10-11T17:51:58.138Z",
+          "suceess": 100,
+          "initException": 87,
+          "systemException": 12,
+          "businessException": 11,
+          "notImplementedException": 345
+        }
+        },
+      {
+          "workCenter": "W3",
+          "transactionsCount": {
+          "dateTime": "2022-10-11T17:51:58.138Z",
+          "suceess": 100,
+          "initException": 87,
+          "systemException": 12,
+          "businessException": 11,
+          "notImplementedException": 45
+        }
+        }
+      ],
+      "chartTransactionsStatusWeek": [
+        {
+          "dateTime": "2022-10-11T17:51:58.138Z",
+          "suceess": 100,
+          "initException": 87,
+          "systemException": 12,
+          "businessException": 11,
+          "notImplementedException": 45
+        },
+      {
+          "dateTime": "2022-10-1T18:51:58.138Z",
+          "suceess": 87,
+          "initException": 76,
+          "systemException": 12,
+          "businessException": 65,
+          "notImplementedException": 18
+        },
+      {
+          "dateTime": "2022-10-13T19:51:58.138Z",
+          "suceess": 99,
+          "initException": 63,
+          "systemException": 15,
+          "businessException": 34,
+          "notImplementedException": 11
+        }
+      ],
+      "chartTransactionsStatusToday": [
+        {
+          "dateTime": "2022-10-13T17:51:58.138Z",
+          "suceess": 100,
+          "initException": 87,
+          "systemException": 12,
+          "businessException": 11,
+          "notImplementedException": 45
+        },
+      {
+          "dateTime": "2022-10-13T18:51:58.138Z",
+          "suceess": 87,
+          "initException": 76,
+          "systemException": 12,
+          "businessException": 65,
+          "notImplementedException": 18
+        },
+      {
+          "dateTime": "2022-10-13T19:51:58.138Z",
+          "suceess": 99,
+          "initException": 63,
+          "systemException": 15,
+          "businessException": 34,
+          "notImplementedException": 11
+        }
+      ]
+    };
+
+    
+        //CARDS
+        try {
+          this.jobsCount = response["cardJobsCount"];
+        } catch (error) {
+        }
+
+        try {
+          this.transactionsCount = response["cardTransactionsCount"];
+        } catch (error) {
+        }
+
+        try {
+          this.processesCount = response["cardProcessesCount"];
+        } catch (error) {
+        }
+
+        try {
+          this.workcentersCount = response["cardWorkCentersCount"];
+        } catch (error) {
+        }
+
+        //PIE
+        try {
+          this.pieTransactionsStatusDataset = [
+          {
+            data: [
+              response['pieTransactionsStatus']['suceess'],
+              response['pieTransactionsStatus']['initException'],
+              response['pieTransactionsStatus']['systemException'],
+              response['pieTransactionsStatus']['businessException'],
+              response['pieTransactionsStatus']['notImplementedException'],
+            ],   
+            label: 'Transactions Status'
+          }
+        ];
+        } catch (error) {
+        }
+
+        try {
+          let processesTransactions: Array<any> = response['pieTransactionsProcess'];
+          let data = new Array<any>();
+          this.pieTransactionsProcessLabels = new Array<any>();
+          processesTransactions.forEach(process =>{
+            this.pieTransactionsProcessLabels.push(process['processName']);
+            data.push(process['transactionsCount']);
+          })
+          this.pieTransactionsProcessDataset = [
+            {
+              data: data,
+              label: 'Processes Transactions'
+            }
+          ];
+        } catch (error) {
+        }
+
+        //POLAR
+        try {
+          //@ts-ignore
+          let jobsStatuses: Array<any> = response['polarJobStatus'];
+          let data = new Array<any>();
+          this.polarJobStatusLabels = new Array<any>();
+          for (var jobStatus in jobsStatuses){
+            this.polarJobStatusLabels.push(jobStatus);
+            data.push(jobsStatuses[jobStatus]);
+          }
+          this.polarJobStatusDataset = [
+            {
+              data: data,
+              label: 'Jobs Status'
+            }
+          ];
+        } catch (error) {
+          
+        }try {
+          //@ts-ignore
+          let processTypes: Array<any> = response['polarProcessType'];
+          let data = new Array<any>();
+          this.polarProcessTypeLabels = new Array<any>();
+          for (var processType in processTypes){
+            this.polarProcessTypeLabels.push(processType);
+            data.push(processTypes[processType]);
+          }
+          this.polarProcessTypeDataset = [
+            {
+              data: data,
+              label: 'Process Types'
+            }
+          ];
+        } catch (error) {
+        }
+
+        //RADAR
+        try {
+          let departmentsTransactions: Array<any> = response['radarTransactionsDepartment'];
+          let data = new Array<any>();
+          this.radarTransactionsDepartmentDataset = new Array<any>();
+          this.radarTransactionsDepartmentLabels = new Array<any>();
+
+          //labels
+          for (var label in departmentsTransactions[0]['transactionsCount']){
+            if(label === 'dateTime')
+              continue;
+            this.radarTransactionsDepartmentLabels.push(label);
+          }
+          //data
+          for (var department in departmentsTransactions){
+            data = new Array<any>();
+            for (var label in departmentsTransactions[department]['transactionsCount']){
+              if(label === 'dateTime')
+                continue;
+              data.push(departmentsTransactions[department]['transactionsCount'][label])
+            }
+            this.radarTransactionsDepartmentDataset.push(
+              {
+                data: data,
+                label: departmentsTransactions[department]['department']
+              }
+            );
+
+          }
+        } catch (error) {
+        }
+
+        try {
+          let workcentersTransactions: Array<any> = response['radarTransactionsWorkCenter'];
+          let data = new Array<any>();
+          this.radarTransactionsWorkCenterDataset = new Array<any>();
+          this.radarTransactionsWorkCenterLabels = new Array<any>();
+
+          //labels
+          for (var label in workcentersTransactions[0]['transactionsCount']){
+            if(label === 'dateTime')
+              continue;
+            this.radarTransactionsWorkCenterLabels.push(label);
+          }
+          //data
+          for (var workcenter in workcentersTransactions){
+            data = new Array<any>();
+            for (var label in workcentersTransactions[workcenter]['transactionsCount']){
+              if(label === 'dateTime')
+                continue;
+              data.push(workcentersTransactions[workcenter]['transactionsCount'][label])
+            }
+            this.radarTransactionsWorkCenterDataset.push(
+              {
+                data: data,
+                label: workcentersTransactions[workcenter]['workCenter']
+              }
+            );
+
+          }
+        } catch (error) {
+        }
+
+        //Line Charts
+        try {
+          let transactionsWeek = response['chartTransactionsStatusWeek'];
+          this.chartTransactionsStatusWeekDataset = new Array<any>();
+          this.chartTransactionsStatusWeekLabels = new Array<any>();
+          let sucess: number[] = [];
+          let initException: number[] = [];
+          let systemException: number[] = [];
+          let businessException: number[] = [];
+          let notImplementedException: number[] = [];
+
+          for (let i = 0; i < transactionsWeek.length; i++) {
+            this.chartTransactionsStatusWeekLabels.push(
+              transactionsWeek[i]['dateTime'].substring(
+                0,
+                transactionsWeek[i]['dateTime'].indexOf('T')).split('-').join('/'));
+
+              sucess.push(transactionsWeek[i]['suceess']);
+              initException.push(transactionsWeek[i]['initException']);
+              systemException.push(transactionsWeek[i]['systemException']);
+              businessException.push(transactionsWeek[i]['businessException']);
+              notImplementedException.push(transactionsWeek[i]['notImplementedException']);
+          }
+          this.chartTransactionsStatusWeekDataset = [
+            {data: sucess, label: 'Sucess'},
+            {data: initException, label: 'InitException'},
+            {data: systemException, label: 'SystemException'},
+            {data: businessException, label: 'BusinessException'},
+            {data: notImplementedException, label: 'NotImplementedException'},
+          ];
+        } catch (error) {  
+        }
+
+        try {
+          let transactionsToday = response['chartTransactionsStatusToday'];
+          this.chartTransactionsStatusTodayDataset = new Array<any>();
+          this.chartTransactionsStatusTodayLabels = new Array<any>();
+          let sucess = [];
+          let initException = [];
+          let systemException = [];
+          let businessException = [];
+          let notImplementedException = [];
+
+          for (let i = 0; i < transactionsToday.length; i++) {
+            this.chartTransactionsStatusTodayLabels.push(
+              transactionsToday[i]['dateTime'].substring(
+                transactionsToday[i]['dateTime'].indexOf('T')+1).substring(0,5)
+                );
+              
+              sucess.push(transactionsToday[i]['suceess']);
+              initException.push(transactionsToday[i]['initException']);
+              systemException.push(transactionsToday[i]['systemException']);
+              businessException.push(transactionsToday[i]['businessException']);
+              notImplementedException.push(transactionsToday[i]['notImplementedException']);
+          }
+          this.chartTransactionsStatusTodayDataset = [
+            {data: sucess, label: 'Sucess'},
+            {data: initException, label: 'InitException'},
+            {data: systemException, label: 'SystemException'},
+            {data: businessException, label: 'BusinessException'},
+            {data: notImplementedException, label: 'NotImplementedException'},
+          ];
+        } catch (error) {
+        }
+
+  }
   getDashboardData(){
 
     this.dashboardService.getData().subscribe(response =>{

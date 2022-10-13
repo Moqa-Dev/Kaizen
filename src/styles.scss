@@ -1,8 +1,18 @@
 
 @import 'assets/themes/theme';
+@import 'assets/themes/colors';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .card{
     background-color: inherit;
+}
+.snackbar-success {
+    color: white;
+    background-color: $success-color;
+}
+
+.snackbar-error {
+    color: white;
+    background-color: $error-color;
 }

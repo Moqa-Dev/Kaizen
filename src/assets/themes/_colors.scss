@@ -9,3 +9,6 @@ $warn-palette: mat.define-palette(mat.$deep-orange-palette);
 $primary-color: mat.get-color-from-palette($primary-palette);
 $accent-color: mat.get-color-from-palette($accent-palette);
 $warn-color: mat.get-color-from-palette($warn-palette);
+
+$success-color: #55b558a7;
+$error-color: #d7232388;

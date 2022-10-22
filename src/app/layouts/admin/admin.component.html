@@ -3,7 +3,7 @@
     <app-navbar class="nav" [isMobile]="isMobileView" (showSidebar)="toggleSidebar()"></app-navbar>
     <div class="main-panel sidebar-trans" [ngClass]="showSidebar && loginService.isLoggedIn() ? 'hide-main-panel' : 'show-main-panel'"
          [style.width]="!loginService.isLoggedIn() || !showSidebar ? '100%' : ''">
-        <router-outlet></router-outlet>
+        <router-outlet class="scrollable-content"></router-outlet>
     </div>
     <div *ngIf="loginService.isLoggedIn()" [ngClass]="showSidebar ? 'show-sidebar' : ''" >
         <app-sidebar class="sidebar sidebar-trans" *ngIf="showSidebar" (hideSidebarEvent)="toggleSidebar()"></app-sidebar>

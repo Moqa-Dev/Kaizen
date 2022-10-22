@@ -74,6 +74,11 @@ mat-progress-bar {
   box-shadow: 3px 0px rgba($color: grey, $alpha: 0.1);
 }
 
+.sidebar{
+  overflow-y:scroll;
+  overflow-x:hidden;
+}
+
 .wrapper .main-panel{
 	// transition: all 0.5s ease;
   padding-bottom: 15px;

@@ -1,0 +1,26 @@
+
+// Firefox
+*{
+  scrollbar-color: rgba(135, 135, 135, 0.4) transparent;
+  scrollbar-width: thin;
+}
+// other
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(135, 135, 135, 0.4); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(135, 135, 135, 0.6);
+}

@@ -1,33 +1,24 @@
 <div class="row">
-    <div class="col-lg-2  col-md-4 col-sm-4 col-xs-12 mr-2">
+    <div style="padding-left: 15px; padding-right: 15px;">
         <mat-form-field appearance="legacy">
             <mat-label>Search</mat-label>
             <input matInput (keyup)="applyFilter($event)">
             <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>
     </div>
-    <!--<div class="col-3" *ngFor="let filter of filters">
+    <div style="padding-left: 15px; padding-right: 15px;" *ngFor="let filter of filters">
         <mat-form-field appearance="legacy">
             <mat-label>{{filter.displayName}}</mat-label>
-            <mat-select (selectionChange)="applyFilter($event)">
+            <mat-select (valueChange)="filter.value = $event; applyFilter()">
                 <mat-option [value]="''">All</mat-option>
                 <mat-option *ngFor="let option of filter.optionsArray" [value]="option">{{option}}</mat-option>
             </mat-select>
         </mat-form-field>
-    </div>-->
-    <div class="dropdown mr-2" *ngFor="let filter of filters">
-        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
-            {{filter.displayName}}: {{filter.value}}
-            <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-            <li (click)="filter.value = 'All'; applyFilter()"><a>All</a></li>
-            <li (click)="filter.value = option; applyFilter()" *ngFor="let option of filter.optionsArray"><a>{{option}}</a></li>
-        </ul>
     </div>
-    <div *ngIf='dateFilter' class="row">
+    
+    <div *ngIf='dateFilter' style="padding-left: 15px; padding-right: 15px;">
         
-        <!-- <mat-form-field appearance="fill"> -->
+        <!-- <mat-form-field> -->
         <mat-form-field >
             <mat-label>Enter a date range</mat-label>
             <mat-date-range-input [formGroup]="range" [rangePicker]="picker" disabled='false'>
@@ -40,7 +31,7 @@
             <mat-date-range-picker #picker disabled='false' ></mat-date-range-picker>
           </mat-form-field>
 
-          <button style="align-content:center; margin-top:5%;" mat-icon-button (click)="clearDate()" matTooltip="Clear Date">
+          <button style="align-content:center; " mat-icon-button (click)="clearDate()" matTooltip="Clear Date">
             <mat-icon>clear</mat-icon>
         </button>
     </div>

@@ -1,6 +1,6 @@
 export class UserDTO {
   userID?: string;
-  username?: string;
+  userName?: string;
   email?: string;
   firstName?: string;
   lastName?: string;

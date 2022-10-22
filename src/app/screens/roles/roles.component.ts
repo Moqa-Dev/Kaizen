@@ -107,7 +107,7 @@ export class RolesComponent {
             Role: response.role,
             Id: response.roleID,
             Permissions: response.permissions?.join(', '),
-            Users: response.users.map(x=> x.username).join(', '),
+            Users: response.users.map(x=> x.userName).join(', '),
           }
         });
       }

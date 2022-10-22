@@ -49,12 +49,12 @@ export class Interceptor implements HttpInterceptor {
             errorDTO.message = 'Your session is expired, please login again';
             this.showNotification(errorDTO, NotificationLevel.ERROR);
             this.loginService.logout();
-            this.router.navigate(['login']);
+            this.router.navigate(['/admin/login']);
           }else if (error.status == 403) {
             let errorDTO: ErrorDTO = new ErrorDTO();
             errorDTO.message = 'You are not Authorized to perform this Action!';
             this.showNotification(errorDTO, NotificationLevel.ERROR);
-            this.router.navigate(['dashboard']);
+            this.router.navigate(['/admin/dashboard']);
           } else {
             this.showNotification(error.error, NotificationLevel.ERROR);
           }

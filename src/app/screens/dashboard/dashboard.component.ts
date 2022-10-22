@@ -7,7 +7,6 @@ import {SnackBarComponent} from "../../components/snack-bar/snack-bar.component"
 import Utils from "../../util/Utils";
 import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
 import { Observable,Subscription, interval  } from 'rxjs';
-import { DashboardService } from '../../services/dashboard.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -55,7 +54,7 @@ export class DashboardComponent implements OnInit {
   showLegend: boolean = true;
 
   pieTransactionsStatusDataset: Array<any> = new Array<any>();
-  pieTransactionsStatusLabels: Array<any> = ['Suceess','InitException','SystemException','BusinessException','NotImplementedException'];
+  pieTransactionsStatusLabels: Array<any> = ['MoQa','Kaizen','Kajo','Development','Shaheen'];
   TransactionsStatusColors: Array<any> = [
     {
       backgroundColor: [
@@ -94,15 +93,14 @@ export class DashboardComponent implements OnInit {
   
 
   chartTransactionsStatusWeekDataset: Array<any> = new Array<any>();
-  chartTransactionsStatusWeekLabels: Array<any> = ['Suceess','InitException','SystemException','BusinessException','NotImplementedException'];
+  chartTransactionsStatusWeekLabels: Array<any> = ['MoQa','Kaizen','Kajo','Development','Shaheen'];
 
   chartTransactionsStatusTodayDataset: Array<any> = new Array<any>();
-  chartTransactionsStatusTodayLabels: Array<any> = ['Suceess','InitException','SystemException','BusinessException','NotImplementedException'];
+  chartTransactionsStatusTodayLabels: Array<any> = ['MoQa','Kaizen','Kajo','Development','Shaheen'];
   
   chartOptions: any = {responsive: true};
 
   constructor(
-    private dashboardService: DashboardService,
     private titleService: Title,
     private route: ActivatedRoute,
     private snackBar: MatSnackBar,
@@ -132,7 +130,6 @@ export class DashboardComponent implements OnInit {
       });
     } else {
       this.titleService.setTitle('Kaizen - Dashboard');
-      // this.getDashboardData();
       this.getMockDashboardData();
     }
   }
@@ -162,27 +159,27 @@ export class DashboardComponent implements OnInit {
       },
       "pieTransactionsStatus": {
         "dateTime": "2022-10-13T19:51:58.138Z",
-        "suceess": 21,
-        "initException": 56,
-        "systemException": 86,
-        "businessException": 19,
-        "notImplementedException": 54
+        "MoQa": 21,
+        "Kaizen": 56,
+        "Kajo": 86,
+        "Development": 19,
+        "Shaheen": 54
       },
       "pieTransactionsProcess": [
         {
-          "processName": "Process-1",
+          "processName": "Post1",
           "transactionsCount": 542
         },
       {
-          "processName": "Process-2",
+          "processName": "Post2",
           "transactionsCount": 433
         },
       {
-          "processName": "Process-3",
+          "processName": "Post3",
           "transactionsCount": 675
         },
       {
-          "processName": "Process-4",
+          "processName": "Post4",
           "transactionsCount": 458
         }
       ],
@@ -191,33 +188,33 @@ export class DashboardComponent implements OnInit {
           "department": "D1",
           "transactionsCount": {
           "dateTime": "2022-10-11T17:51:58.138Z",
-          "suceess": 50,
-          "initException": 187,
-          "systemException": 12,
-          "businessException": 11,
-          "notImplementedException": 45
+          "MoQa": 50,
+          "Kaizen": 187,
+          "Kajo": 12,
+          "Development": 11,
+          "Shaheen": 45
         }
         },
       {
           "department": "D2",
           "transactionsCount": {
           "dateTime": "2022-10-11T17:51:58.138Z",
-          "suceess": 100,
-          "initException": 87,
-          "systemException": 12,
-          "businessException": 111,
-          "notImplementedException": 245
+          "MoQa": 100,
+          "Kaizen": 87,
+          "Kajo": 12,
+          "Development": 111,
+          "Shaheen": 245
         }
         },
       {
           "department": "D3",
           "transactionsCount": {
           "dateTime": "2022-10-11T17:51:58.138Z",
-          "suceess": 100,
-          "initException": 87,
-          "systemException": 12,
-          "businessException": 11,
-          "notImplementedException": 45
+          "MoQa": 100,
+          "Kaizen": 87,
+          "Kajo": 12,
+          "Development": 11,
+          "Shaheen": 45
         }
         }
       ],
@@ -226,86 +223,86 @@ export class DashboardComponent implements OnInit {
           "workCenter": "W1",
           "transactionsCount": {
           "dateTime": "2022-10-11T17:51:58.138Z",
-          "suceess": 100,
-          "initException": 87,
-          "systemException": 12,
-          "businessException": 211,
-          "notImplementedException": 45
+          "MoQa": 100,
+          "Kaizen": 87,
+          "Kajo": 12,
+          "Development": 211,
+          "Shaheen": 45
         }
         },
       {
           "workCenter": "W2",
           "transactionsCount": {
           "dateTime": "2022-10-11T17:51:58.138Z",
-          "suceess": 100,
-          "initException": 87,
-          "systemException": 12,
-          "businessException": 11,
-          "notImplementedException": 345
+          "MoQa": 100,
+          "Kaizen": 87,
+          "Kajo": 12,
+          "Development": 11,
+          "Shaheen": 345
         }
         },
       {
           "workCenter": "W3",
           "transactionsCount": {
           "dateTime": "2022-10-11T17:51:58.138Z",
-          "suceess": 100,
-          "initException": 87,
-          "systemException": 12,
-          "businessException": 11,
-          "notImplementedException": 45
+          "MoQa": 100,
+          "Kaizen": 87,
+          "Kajo": 12,
+          "Development": 11,
+          "Shaheen": 45
         }
         }
       ],
       "chartTransactionsStatusWeek": [
         {
           "dateTime": "2022-10-11T17:51:58.138Z",
-          "suceess": 100,
-          "initException": 87,
-          "systemException": 12,
-          "businessException": 11,
-          "notImplementedException": 45
+          "MoQa": 100,
+          "Kaizen": 87,
+          "Kajo": 12,
+          "Development": 11,
+          "Shaheen": 45
         },
       {
           "dateTime": "2022-10-1T18:51:58.138Z",
-          "suceess": 87,
-          "initException": 76,
-          "systemException": 12,
-          "businessException": 65,
-          "notImplementedException": 18
+          "MoQa": 87,
+          "Kaizen": 76,
+          "Kajo": 12,
+          "Development": 65,
+          "Shaheen": 18
         },
       {
           "dateTime": "2022-10-13T19:51:58.138Z",
-          "suceess": 99,
-          "initException": 63,
-          "systemException": 15,
-          "businessException": 34,
-          "notImplementedException": 11
+          "MoQa": 99,
+          "Kaizen": 63,
+          "Kajo": 15,
+          "Development": 34,
+          "Shaheen": 11
         }
       ],
       "chartTransactionsStatusToday": [
         {
           "dateTime": "2022-10-13T17:51:58.138Z",
-          "suceess": 100,
-          "initException": 87,
-          "systemException": 12,
-          "businessException": 11,
-          "notImplementedException": 45
+          "MoQa": 100,
+          "Kaizen": 87,
+          "Kajo": 12,
+          "Development": 11,
+          "Shaheen": 45
         },
       {
           "dateTime": "2022-10-13T18:51:58.138Z",
-          "suceess": 87,
-          "initException": 76,
-          "systemException": 12,
-          "businessException": 65,
-          "notImplementedException": 18
+          "MoQa": 87,
+          "Kaizen": 76,
+          "Kajo": 12,
+          "Development": 65,
+          "Shaheen": 18
         },
       {
           "dateTime": "2022-10-13T19:51:58.138Z",
-          "suceess": 99,
-          "initException": 63,
-          "systemException": 15,
-          "businessException": 34,
-          "notImplementedException": 11
+          "MoQa": 99,
+          "Kaizen": 63,
+          "Kajo": 15,
+          "Development": 34,
+          "Shaheen": 11
         }
       ]
     };
@@ -337,11 +334,11 @@ export class DashboardComponent implements OnInit {
           this.pieTransactionsStatusDataset = [
           {
             data: [
-              response['pieTransactionsStatus']['suceess'],
-              response['pieTransactionsStatus']['initException'],
-              response['pieTransactionsStatus']['systemException'],
-              response['pieTransactionsStatus']['businessException'],
-              response['pieTransactionsStatus']['notImplementedException'],
+              response['pieTransactionsStatus']['MoQa'],
+              response['pieTransactionsStatus']['Kaizen'],
+              response['pieTransactionsStatus']['Kajo'],
+              response['pieTransactionsStatus']['Development'],
+              response['pieTransactionsStatus']['Shaheen'],
             ],   
             label: 'Transactions Status'
           }
@@ -482,18 +479,18 @@ export class DashboardComponent implements OnInit {
                 0,
                 transactionsWeek[i]['dateTime'].indexOf('T')).split('-').join('/'));
 
-              sucess.push(transactionsWeek[i]['suceess']);
-              initException.push(transactionsWeek[i]['initException']);
-              systemException.push(transactionsWeek[i]['systemException']);
-              businessException.push(transactionsWeek[i]['businessException']);
-              notImplementedException.push(transactionsWeek[i]['notImplementedException']);
+              sucess.push(transactionsWeek[i]['MoQa']);
+              initException.push(transactionsWeek[i]['Kaizen']);
+              systemException.push(transactionsWeek[i]['Kajo']);
+              businessException.push(transactionsWeek[i]['Development']);
+              notImplementedException.push(transactionsWeek[i]['Shaheen']);
           }
           this.chartTransactionsStatusWeekDataset = [
             {data: sucess, label: 'Sucess'},
-            {data: initException, label: 'InitException'},
-            {data: systemException, label: 'SystemException'},
-            {data: businessException, label: 'BusinessException'},
-            {data: notImplementedException, label: 'NotImplementedException'},
+            {data: initException, label: 'Kaizen'},
+            {data: systemException, label: 'Kajo'},
+            {data: businessException, label: 'Development'},
+            {data: notImplementedException, label: 'Shaheen'},
           ];
         } catch (error) {  
         }
@@ -514,250 +511,24 @@ export class DashboardComponent implements OnInit {
                 transactionsToday[i]['dateTime'].indexOf('T')+1).substring(0,5)
                 );
               
-              sucess.push(transactionsToday[i]['suceess']);
-              initException.push(transactionsToday[i]['initException']);
-              systemException.push(transactionsToday[i]['systemException']);
-              businessException.push(transactionsToday[i]['businessException']);
-              notImplementedException.push(transactionsToday[i]['notImplementedException']);
+              sucess.push(transactionsToday[i]['MoQa']);
+              initException.push(transactionsToday[i]['Kaizen']);
+              systemException.push(transactionsToday[i]['Kajo']);
+              businessException.push(transactionsToday[i]['Development']);
+              notImplementedException.push(transactionsToday[i]['Shaheen']);
           }
           this.chartTransactionsStatusTodayDataset = [
             {data: sucess, label: 'Sucess'},
-            {data: initException, label: 'InitException'},
-            {data: systemException, label: 'SystemException'},
-            {data: businessException, label: 'BusinessException'},
-            {data: notImplementedException, label: 'NotImplementedException'},
+            {data: initException, label: 'Kaizen'},
+            {data: systemException, label: 'Kajo'},
+            {data: businessException, label: 'Development'},
+            {data: notImplementedException, label: 'Shaheen'},
           ];
         } catch (error) {
         }
 
-  }
-  getDashboardData(){
-
-    this.dashboardService.getData().subscribe(response =>{
-      if(response){
-        //CARDS
-        try {
-          this.jobsCount = response["cardJobsCount"];
-        } catch (error) {
-        }
-
-        try {
-          this.transactionsCount = response["cardTransactionsCount"];
-        } catch (error) {
-        }
-
-        try {
-          this.processesCount = response["cardProcessesCount"];
-        } catch (error) {
-        }
-
-        try {
-          this.workcentersCount = response["cardWorkCentersCount"];
-        } catch (error) {
-        }
-
-        //PIE
-        try {
-          this.pieTransactionsStatusDataset = [
-          {
-            data: [
-              response['pieTransactionsStatus']['suceess'],
-              response['pieTransactionsStatus']['initException'],
-              response['pieTransactionsStatus']['systemException'],
-              response['pieTransactionsStatus']['businessException'],
-              response['pieTransactionsStatus']['notImplementedException'],
-            ],   
-            label: 'Transactions Status'
-          }
-        ];
-        } catch (error) {
-        }
-
-        try {
-          let processesTransactions: Array<any> = response['pieTransactionsProcess'];
-          let data = new Array<any>();
-          this.pieTransactionsProcessLabels = new Array<any>();
-          processesTransactions.forEach(process =>{
-            this.pieTransactionsProcessLabels.push(process['processName']);
-            data.push(process['transactionsCount']);
-          })
-          this.pieTransactionsProcessDataset = [
-            {
-              data: data,
-              label: 'Processes Transactions'
-            }
-          ];
-        } catch (error) {
-        }
-
-        //POLAR
-        try {
-          let jobsStatuses: Array<any> = response['polarJobStatus'];
-          let data = new Array<any>();
-          this.polarJobStatusLabels = new Array<any>();
-          for (var jobStatus in jobsStatuses){
-            this.polarJobStatusLabels.push(jobStatus);
-            data.push(jobsStatuses[jobStatus]);
-          }
-          this.polarJobStatusDataset = [
-            {
-              data: data,
-              label: 'Jobs Status'
-            }
-          ];
-        } catch (error) {
-          
-        }try {
-          let processTypes: Array<any> = response['polarProcessType'];
-          let data = new Array<any>();
-          this.polarProcessTypeLabels = new Array<any>();
-          for (var processType in processTypes){
-            this.polarProcessTypeLabels.push(processType);
-            data.push(processTypes[processType]);
-          }
-          this.polarProcessTypeDataset = [
-            {
-              data: data,
-              label: 'Process Types'
-            }
-          ];
-        } catch (error) {
-        }
-
-        //RADAR
-        try {
-          let departmentsTransactions: Array<any> = response['radarTransactionsDepartment'];
-          let data = new Array<any>();
-          this.radarTransactionsDepartmentDataset = new Array<any>();
-          this.radarTransactionsDepartmentLabels = new Array<any>();
-
-          //labels
-          for (var label in departmentsTransactions[0]['transactionsCount']){
-            if(label === 'dateTime')
-              continue;
-            this.radarTransactionsDepartmentLabels.push(label);
-          }
-          //data
-          for (var department in departmentsTransactions){
-            data = new Array<any>();
-            for (var label in departmentsTransactions[department]['transactionsCount']){
-              if(label === 'dateTime')
-                continue;
-              data.push(departmentsTransactions[department]['transactionsCount'][label])
-            }
-            this.radarTransactionsDepartmentDataset.push(
-              {
-                data: data,
-                label: departmentsTransactions[department]['department']
-              }
-            );
-
-          }
-        } catch (error) {
-        }
-
-        try {
-          let workcentersTransactions: Array<any> = response['radarTransactionsWorkCenter'];
-          let data = new Array<any>();
-          this.radarTransactionsWorkCenterDataset = new Array<any>();
-          this.radarTransactionsWorkCenterLabels = new Array<any>();
-
-          //labels
-          for (var label in workcentersTransactions[0]['transactionsCount']){
-            if(label === 'dateTime')
-              continue;
-            this.radarTransactionsWorkCenterLabels.push(label);
-          }
-          //data
-          for (var workcenter in workcentersTransactions){
-            data = new Array<any>();
-            for (var label in workcentersTransactions[workcenter]['transactionsCount']){
-              if(label === 'dateTime')
-                continue;
-              data.push(workcentersTransactions[workcenter]['transactionsCount'][label])
-            }
-            this.radarTransactionsWorkCenterDataset.push(
-              {
-                data: data,
-                label: workcentersTransactions[workcenter]['workCenter']
-              }
-            );
-
-          }
-        } catch (error) {
-        }
-
-        //Line Charts
-        try {
-          let transactionsWeek = response['chartTransactionsStatusWeek'];
-          this.chartTransactionsStatusWeekDataset = new Array<any>();
-          this.chartTransactionsStatusWeekLabels = new Array<any>();
-          let sucess: number[] = [];
-          let initException: number[] = [];
-          let systemException: number[] = [];
-          let businessException: number[] = [];
-          let notImplementedException: number[] = [];
-
-          for (let i = 0; i < transactionsWeek.length; i++) {
-            this.chartTransactionsStatusWeekLabels.push(
-              transactionsWeek[i]['dateTime'].substring(
-                0,
-                transactionsWeek[i]['dateTime'].indexOf('T')).split('-').join('/'));
-
-              sucess.push(transactionsWeek[i]['suceess']);
-              initException.push(transactionsWeek[i]['initException']);
-              systemException.push(transactionsWeek[i]['systemException']);
-              businessException.push(transactionsWeek[i]['businessException']);
-              notImplementedException.push(transactionsWeek[i]['notImplementedException']);
-          }
-          this.chartTransactionsStatusWeekDataset = [
-            {data: sucess, label: 'Sucess'},
-            {data: initException, label: 'InitException'},
-            {data: systemException, label: 'SystemException'},
-            {data: businessException, label: 'BusinessException'},
-            {data: notImplementedException, label: 'NotImplementedException'},
-          ];
-        } catch (error) {  
-        }
-
-        try {
-          let transactionsToday = response['chartTransactionsStatusToday'];
-          this.chartTransactionsStatusTodayDataset = new Array<any>();
-          this.chartTransactionsStatusTodayLabels = new Array<any>();
-          let sucess = [];
-          let initException = [];
-          let systemException = [];
-          let businessException = [];
-          let notImplementedException = [];
-
-          for (let i = 0; i < transactionsToday.length; i++) {
-            this.chartTransactionsStatusTodayLabels.push(
-              transactionsToday[i]['dateTime'].substring(
-                transactionsToday[i]['dateTime'].indexOf('T')+1).substring(0,5)
-                );
-              
-              sucess.push(transactionsToday[i]['suceess']);
-              initException.push(transactionsToday[i]['initException']);
-              systemException.push(transactionsToday[i]['systemException']);
-              businessException.push(transactionsToday[i]['businessException']);
-              notImplementedException.push(transactionsToday[i]['notImplementedException']);
-          }
-          this.chartTransactionsStatusTodayDataset = [
-            {data: sucess, label: 'Sucess'},
-            {data: initException, label: 'InitException'},
-            {data: systemException, label: 'SystemException'},
-            {data: businessException, label: 'BusinessException'},
-            {data: notImplementedException, label: 'NotImplementedException'},
-          ];
-        } catch (error) {
-        }
-
-      }
-    });
   }
   
-
-
 
   showNotification(message: string, level: NotificationLevel) {
     this.snackBar.openFromComponent(SnackBarComponent, {
@@ -767,9 +538,4 @@ export class DashboardComponent implements OnInit {
       }
     });
   }
-
-  getRandomInt(max: number) {
-    return Math.floor(Math.random() * Math.floor(max));
-  }
-
 }

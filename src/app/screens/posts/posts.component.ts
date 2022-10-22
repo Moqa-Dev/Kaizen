@@ -114,9 +114,8 @@ export class PostsComponent {
   }
 
   getById(item: any) {
-    this.postsService.getById(item.postID).subscribe(response => {
+    this.postsService.getById(item.id).subscribe(response => {
       if (response) {
-        console.log(response);
         this.dialog.open(ViewPopupComponent, {
           width: '50%',
           maxWidth: '50%',
@@ -176,12 +175,14 @@ export class PostsComponent {
     });
 
     dialogRef.afterClosed().subscribe(response => {
+      console.log(response);
       if (response instanceof FormGroup) {
+        console.log(response.controls);
         let item: UpdatePostDTO = new UpdatePostDTO();
         item.title = response.controls.title.value;
         item.content = response.controls.content.value;
         item.status = response.controls.status.value;
-        item.topicId = response.controls.topicID.value;
+        item.topicId = response.controls.topicId.value;
         this.postsService.AddItem(item).subscribe(response => {
           if (response) {
             this.refreshPage();
@@ -206,7 +207,7 @@ export class PostsComponent {
         item.title = response.controls.title.value;
         item.content = response.controls.content.value;
         item.status = response.controls.status.value;
-        item.topicId = response.controls.topicID.value;
+        item.topicId = response.controls.topicId.value;
         this.postsService.updateItem(originalItem.id, item).subscribe(() => {
           this.refreshPage();
           this.showNotification('item updated successfully', NotificationLevel.SUCCESS);

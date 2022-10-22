@@ -96,7 +96,7 @@ export class TopicsComponent {
   }
 
   getById(item: any) {
-    this.topicsService.getById(item.topicID).subscribe(response => {
+    this.topicsService.getById(item.id).subscribe(response => {
       if (response) {
         this.dialog.open(ViewPopupComponent, {
           width: '50%',
@@ -108,7 +108,7 @@ export class TopicsComponent {
             Description: response.description,
             CreationDate: response.creationDate,
             UpdateDate: response.updateDate,
-            Posts: response.posts?.join(', '),
+            Posts: response.posts.map(p=> p.title)?.join(', '),
             User: response.user.userName,
           }
         });
@@ -158,7 +158,7 @@ export class TopicsComponent {
     dialogRef.afterClosed().subscribe(response => {
       if (response instanceof FormGroup) {
         let item: UpdateTopicDTO = new UpdateTopicDTO();
-        item.title = response.controls.topic.value;
+        item.title = response.controls.title.value;
         item.description = response.controls.description.value;
         this.topicsService.AddItem(item).subscribe(response => {
           if (response) {
@@ -181,7 +181,7 @@ export class TopicsComponent {
     dialogRef.afterClosed().subscribe(response => {
       if (response instanceof FormGroup) {
         let item: UpdateTopicDTO = new UpdateTopicDTO();
-        item.title = response.controls.topic.value;
+        item.title = response.controls.title.value;
         item.description = response.controls.description.value;
         this.topicsService.updateItem(originalItem.id, item).subscribe(() => {
           this.refreshPage();

@@ -175,9 +175,7 @@ export class PostsComponent {
     });
 
     dialogRef.afterClosed().subscribe(response => {
-      console.log(response);
       if (response instanceof FormGroup) {
-        console.log(response.controls);
         let item: UpdatePostDTO = new UpdatePostDTO();
         item.title = response.controls.title.value;
         item.content = response.controls.content.value;

@@ -1,4 +1,4 @@
-<mat-progress-bar *ngIf="showProgressBar" mode="indeterminate"></mat-progress-bar>
+<mat-progress-bar color="accent" *ngIf="showProgressBar" mode="indeterminate"></mat-progress-bar>
 <div class="wrapper">
     <app-navbar class="nav" [isMobile]="isMobileView" (showSidebar)="toggleSidebar()"></app-navbar>
     <div class="main-panel sidebar-trans" [ngClass]="showSidebar && loginService.isLoggedIn() ? 'hide-main-panel' : 'show-main-panel'"

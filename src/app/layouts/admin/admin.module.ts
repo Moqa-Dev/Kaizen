@@ -10,7 +10,7 @@ import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/mater
 import { FooterComponent } from 'src/app/components/footer/footer.component';
 import { NavbarComponent } from 'src/app/components/navbar/navbar.component';
 import { SidebarComponent } from 'src/app/components/sidebar/sidebar.component';
-
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -23,6 +23,7 @@ import { SidebarComponent } from 'src/app/components/sidebar/sidebar.component';
     SidebarComponent,
     NavbarComponent,
     MatSnackBarModule,
+    MatProgressBarModule
   ],
   providers: [
     AuthGuard,

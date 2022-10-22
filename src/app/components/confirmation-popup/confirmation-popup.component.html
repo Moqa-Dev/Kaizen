@@ -1,15 +1,17 @@
-<h1 mat-dialog-title></h1>
+<h1 mat-dialog-title>Are You Sure?</h1>
+<mat-divider></mat-divider>
 <div mat-dialog-content>
     <dl class="row">
-        <div class="col-12">
-            <h3>{{data.message}}</h3>
+        <div class="col-12" style="padding-top:25px;">
+            <P style="font-size: 16px;">{{data.message}}<P>
         </div>
     </dl>
+    <mat-divider></mat-divider>
     <dl class="row">
-        <dd class="col-12">
+        <dd class="col-md-12 align-right">
             <mat-dialog-actions>
-                <button mat-button matDialogClose="close" class="cancel-color">{{data.cancel}}</button>
-                <button mat-button matDialogClose="ok" class="submit-color">{{data.ok}}</button>
+                <button mat-raised-button color="accent" matDialogClose="close">{{data.cancel}}</button>
+                <button mat-raised-button color="warn">{{data.ok}}</button>
             </mat-dialog-actions>
         </dd>
     </dl>

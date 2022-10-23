@@ -1,0 +1,34 @@
+<mat-progress-bar color="accent" *ngIf="showProgressBar" mode="indeterminate"></mat-progress-bar>
+<div class="wrapper">
+    <app-navbar [hideButtons]="true" class="nav"></app-navbar>
+    <div class="main-panel sidebar-trans show-main-panel" style="width: 100%;">
+        <div 
+        infinite-scroll
+        [infiniteScrollDistance]="3"
+        [infiniteScrollThrottle]="1000"
+        (scrolled)="onScroll()"
+        >
+
+            <mat-card class="card" *ngFor="let post of posts">
+                <mat-card-header>
+                  <div mat-card-avatar class="header-image"></div>
+                  <mat-card-title>{{post.title}}</mat-card-title>
+                  <mat-card-subtitle>{{post.topicName}}</mat-card-subtitle>
+                  <mat-card-subtitle>By: {{post.userName}} - on: {{post.creationDate}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-divider></mat-divider>
+                <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+                <mat-card-content style="padding-top: 20px; font-size:large">
+                    <markdown>{{post.content}}</markdown>
+                </mat-card-content>
+                <mat-divider></mat-divider>
+                <mat-card-actions class="pull-right">
+                  <button mat-raised-button color="accent">LIKE</button>
+                  <button mat-raised-button color="warn">SHARE</button>
+                </mat-card-actions>
+              </mat-card>
+              
+        </div>
+    </div>
+</div>
+<app-footer class="footer"></app-footer>

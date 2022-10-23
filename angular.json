@@ -49,7 +49,8 @@
               "node_modules/chartist/dist/chartist.js",
               "node_modules/chart.js/dist/Chart.js",
               "node_modules/hammerjs/hammer.min.js",
-              "node_modules/bstreeview/dist/js/bstreeview.min.js"
+              "node_modules/bstreeview/dist/js/bstreeview.min.js",
+              "node_modules/marked/marked.min.js"
             ]
           },
           "configurations": {

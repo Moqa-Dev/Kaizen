@@ -1,0 +1,73 @@
+@import '/src/assets/themes/colors.scss';
+
+mat-progress-bar {
+  z-index: 10;
+  position: fixed;
+}
+
+// @media (max-width: 1200px) {
+//   .hide-main-panel {
+//     display: none;
+//   }
+
+//   .show-main-panel {
+//     width: 100%;
+//   }
+
+//   .show-sidebar {
+//     width: 100% !important;
+//     // transition: all 0.5s ease;
+//   }
+
+//   .sidebar {
+//     top: 0;
+//   }
+// }
+
+
+.wrapper {
+  //overflow: auto;
+  scrollbar-color: grey;
+  scrollbar-width: thin;
+  width: 100%;
+  padding-bottom: 20px;
+}
+.nav{
+  background: $accent-color;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  max-height: 70px;
+  z-index: 5;
+  box-shadow: 0px 3px rgba($color: #000000, $alpha: 0.3);
+}
+
+.wrapper .main-panel{
+	// transition: all 0.5s ease;
+  padding-bottom: 15px;
+  padding-top: 75px;
+}
+
+.show-main-panel{
+  width: 100%;
+  padding: 100px;
+}
+
+.footer{
+  height: 20px;
+}
+.card {
+  margin: 50px 0px;
+}
+
+.header-image {
+  background-image: url('/assets/img/moqa-profile.png');
+  background-size: cover;
+}
+
+.pull-right{
+  display: flex;
+  padding: inherit 21px;
+  justify-content: flex-end;
+}

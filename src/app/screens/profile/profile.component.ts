@@ -80,7 +80,7 @@ export class ProfileComponent implements OnInit {
 
   initPasswordForm() {
     this.updatePasswordForm = new FormGroup({
-      username: new FormControl({value: this.currentUser.username, disabled: true}, [Validators.required]),
+      username: new FormControl({value: this.currentUser.userName, disabled: true}, [Validators.required]),
       email: new FormControl({value: this.currentUser.email, disabled: true}, [Validators.required]),
       oldPassword: new FormControl({value: '', disabled: !this.editPasswordMode}, [Validators.required]),
       newPassword: new FormControl({value: '', disabled: !this.editPasswordMode}, [Validators.required])

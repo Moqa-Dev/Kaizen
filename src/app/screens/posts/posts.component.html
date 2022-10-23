@@ -1,0 +1,19 @@
+<app-data-table
+        [title]="title"
+        [fabIcon]="'add'"
+        [fabButton]="'Add New Item'"
+        [inputArray]="itemsResultSet"
+        [defaultSortColumn]="'creationTimeString'"
+        [defaultSortDirection]="'desc'"
+        [columns]="columns"
+        [displayedColumns]="displayedColumns"
+        [rowMenuActions]="rowMenuActions"
+        [filters]="filters"
+        (sort)="sort = $event; refreshPage()"
+        (refresh)="refreshPage()"
+        (fabAction)="AddItem()"
+        (updateTable)="getAll($event)"
+        (refreshForFilters)="applyFilter($event)"
+        (applyAction)="applyAction($event.action, $event.element)"
+        [dateFilter] = true>
+</app-data-table>

@@ -5,9 +5,9 @@ export class ErrorDTO {
     /**
      * Error Code
      */
-    errorCode?: number;
+    ErrorCode?: number;
     /**
      * Custom Error Message
      */
-    message?: string;
+    Message?: string;
 }

@@ -59,7 +59,7 @@ export class ManageRoleUsersDialogComponent {
       users: new FormArray([])
     });
     this.users.forEach(user => this.usersFormArray.push(
-      new FormControl(this.data.users.map(x=> x.username).includes(user.username))));
+      new FormControl(this.data.users.map(x=> x.userName).includes(user.userName))));
   }
 
   getUsers() {

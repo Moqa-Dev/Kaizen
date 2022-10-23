@@ -18,6 +18,18 @@ const routes: Routes = [
       loadChildren: () => import('./layouts/theme/theme.module').then(x => x.ThemeModule)
     }]
   }, {
+    path: 'angular',
+    children: [{
+      path: '',
+      loadChildren: () => import('./layouts/gs/gs.module').then(x => x.GSModule)
+    }]
+  }, {
+    path: 'posts',
+    children: [{
+      path: '',
+      loadChildren: () => import('./layouts/public/public.module').then(x => x.PublicModule)
+    }]
+  }, {
     path: 'admin',
     component: AdminComponent,
     loadChildren: () => import('./layouts/admin/admin.module').then(x => x.AdminModule)

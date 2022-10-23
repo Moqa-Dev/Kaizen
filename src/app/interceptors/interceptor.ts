@@ -40,21 +40,20 @@ export class Interceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       // @ts-ignore
       catchError((error: HttpErrorResponse) => {
-        console.log(error);
         if (error)
           if (error.status == 404) {
-            this.showNotification({message: 'Not found', errorCode: 404}, NotificationLevel.ERROR);
+            this.showNotification({Message: 'Not found', ErrorCode: 404}, NotificationLevel.ERROR);
           } else if (error.status == 401) {
             let errorDTO: ErrorDTO = new ErrorDTO();
-            errorDTO.message = 'Your session is expired, please login again';
+            errorDTO.Message = 'Your session is expired, please login again';
             this.showNotification(errorDTO, NotificationLevel.ERROR);
             this.loginService.logout();
-            this.router.navigate(['login']);
+            this.router.navigate(['/admin/login']);
           }else if (error.status == 403) {
             let errorDTO: ErrorDTO = new ErrorDTO();
-            errorDTO.message = 'You are not Authorized to perform this Action!';
+            errorDTO.Message = 'You are not Authorized to perform this Action!';
             this.showNotification(errorDTO, NotificationLevel.ERROR);
-            this.router.navigate(['dashboard']);
+            this.router.navigate(['/admin/dashboard']);
           } else {
             this.showNotification(error.error, NotificationLevel.ERROR);
           }
@@ -70,8 +69,8 @@ export class Interceptor implements HttpInterceptor {
     this.snackBar.openFromComponent(SnackBarComponent, {
       panelClass: [Utils.notificationLevel(level)],
       data: {
-        errorCode: error.errorCode,
-        message: error.message
+        errorCode: error.ErrorCode,
+        message: error.Message
       }
     });
   }

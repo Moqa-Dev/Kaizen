@@ -37,6 +37,7 @@ export class NavbarComponent implements OnInit {
   sidebar_state: boolean = false;
 
   @Input() isMobile: boolean = false;
+  @Input() hideButtons: boolean = false;
 
   constructor(location: Location,
               private element: ElementRef,

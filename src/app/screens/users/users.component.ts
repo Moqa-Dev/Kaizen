@@ -103,7 +103,7 @@ export class UsersComponent implements OnInit {
           maxWidth: Utils.isMobile() ? '70%' : '50%',
           data: {
             title: 'User details',
-            username: response.username,
+            username: response.userName,
             email: response.email,
             firstName: response.firstName,
             lastName: response.lastName,

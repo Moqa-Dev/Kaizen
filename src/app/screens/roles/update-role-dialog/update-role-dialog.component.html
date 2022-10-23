@@ -4,7 +4,7 @@
     <div class="row" style="padding: 10px;">
         <div class="col-md-12">
             <form [formGroup]="updateForm">
-                <mat-form-field appearance="fill">
+                <mat-form-field>
                     <mat-label>Role</mat-label>
                     <input matInput formControlName="role" type="text">
                     <mat-error *ngIf="updateForm.controls.role.invalid">{{getErrorMessage('role')}}</mat-error>
@@ -20,7 +20,7 @@
         <button mat-raised-button color="warn" matDialogClose="cancel">cancel</button>
         <button mat-raised-button color="accent" type="submit" [matDialogClose]="updateForm"
             [disabled]="!updateForm.valid">
-            Add
+            Update
         </button>
     </mat-dialog-actions>
 </div>

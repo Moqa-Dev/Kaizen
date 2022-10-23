@@ -1,6 +1,6 @@
-<mat-toolbar color="accent"  [ngClass]="isLoggedIn() ? 'horizontal-line' : ''"
+<mat-toolbar color="accent"  [ngClass]="isLoggedIn() && !hideButtons ? 'horizontal-line' : ''"
              >
-    <button class="white-color" *ngIf="isLoggedIn()" mat-icon-button (click)="toggleSidebar()">
+    <button class="white-color" *ngIf="isLoggedIn() && !hideButtons" mat-icon-button (click)="toggleSidebar()">
         <mat-icon class="white-color">menu</mat-icon>
     </button>
     <div *ngIf="isMobile" class="navbar-wrapper logo white-color" >
@@ -27,7 +27,7 @@
     <div class="spacer"></div>
     <div  class="navbar-collapse white-color" id="navigation">
         
-        <ul *ngIf="isLoggedIn()" class="navbar-nav">
+        <ul *ngIf="isLoggedIn() && !hideButtons" class="navbar-nav">
             <li class="nav-item">
                 <mat-menu #userMenu>
                     <button mat-menu-item (click)="goToProfile()">

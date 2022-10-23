@@ -56,6 +56,7 @@ export class FilterComponent implements OnInit {
     = new EventEmitter<{filters: Filter[], searchText: string, startDate: Date, endDate:Date}>();
 
   searchText: string = '';
+  selectedOption: string = "All";
 
   range = new FormGroup({
     startDate: new FormControl({value: null,disabled:true}),

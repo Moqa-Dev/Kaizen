@@ -18,6 +18,12 @@ const routes: Routes = [
       loadChildren: () => import('./layouts/theme/theme.module').then(x => x.ThemeModule)
     }]
   }, {
+    path: 'angular',
+    children: [{
+      path: '',
+      loadChildren: () => import('./layouts/gs/gs.module').then(x => x.GSModule)
+    }]
+  }, {
     path: 'posts',
     children: [{
       path: '',
